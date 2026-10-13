@@ -36,7 +36,7 @@ export function EqCard({ e }: { e: Equipment }) {
   return (
     <article className="cl-eq">
       <Link to={`/client/catalog/${e.id}`} className="cl-eq-img" aria-label={e.title}>
-        <EquipmentArt category={e.category} label={e.title} />
+        <EquipmentArt seed={e.id} category={e.category} label={e.title} />
         {from ? <span className="cl-eq-flag busy">Доступна с {dateShort(from)}</span> : <span className="cl-eq-flag free">Свободна сейчас</span>}
       </Link>
       <div className="cl-eq-actions">

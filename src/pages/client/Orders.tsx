@@ -97,7 +97,7 @@ export default function Orders() {
           <button className="btn btn-primary" onClick={() => repeat(open)}><Repeat2 />Повторить заказ</button>
         </>}>
           <div className="row" style={{ gap: 14, alignItems: 'flex-start' }}>
-            <div style={{ width: 120, flex: 'none' }}><EquipmentArt category={e.category} label={e.title} /></div>
+            <div style={{ width: 120, flex: 'none' }}><EquipmentArt seed={e.id} category={e.category} label={e.title} /></div>
             <div className="grow stack-sm">
               <StatusBadge status={open.status} />
               <b style={{ fontSize: 16 }}>{e.title}</b>

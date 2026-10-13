@@ -15,8 +15,8 @@
 /* на тёмных блоках главное действие — оранжевое, это и есть дозированный акцент */
 :is(.l-hero, .l-owners, .auth-aside, .drv-hero, .drv-timer, .ca-call) .btn-primary { background: var(--accent); color: var(--accent-fg); }
 :is(.l-hero, .l-owners, .auth-aside, .drv-hero, .drv-timer, .ca-call) .btn-primary:hover { background: var(--accent-strong); }
-:is(.l-hero, .l-owners) .btn-secondary { background: transparent; color: var(--ink-fg); border-color: color-mix(in srgb, var(--ink-fg) 30%, transparent); }
-:is(.l-hero, .l-owners) .btn-secondary:hover { background: color-mix(in srgb, var(--ink-fg) 8%, transparent); }
+:is(.l-owners) .btn-secondary { background: transparent; color: var(--ink-fg); border-color: color-mix(in srgb, var(--ink-fg) 30%, transparent); }
+:is(.l-owners) .btn-secondary:hover { background: color-mix(in srgb, var(--ink-fg) 8%, transparent); }
 .btn-dark { background: var(--ink); color: var(--ink-fg); }
 .btn-dark:hover { background: var(--ink-2); }
 .btn-secondary { background: transparent; border-color: var(--line-strong); color: var(--fg); }
@@ -123,7 +123,7 @@
 .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .stat .k { font-size: 13px; color: var(--fg-3); font-weight: 500; display: flex; align-items: center; gap: 8px; }
 .stat .k svg { width: 16px; height: 16px; }
-.stat .v { font: 400 28px/1.1 var(--font-display); letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+.stat .v { font: 700 27px/1.1 var(--font-display); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
 .stat .d { font-size: 12px; color: var(--fg-3); }
 .stat .d.up { color: var(--ok); }
 .stat .d.down { color: var(--bad); }
@@ -145,7 +145,7 @@
 .bar.bad > span { background: var(--bad); }
 
 /* ---------- Alerts ---------- */
-.alert { display: flex; gap: 12px; padding: 12px 14px; border-radius: var(--r); font-size: 14px; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-left: 2px solid currentColor; }
+.alert { display: flex; gap: 12px; padding: 12px 14px; border-radius: var(--r-lg); font-size: 14px; align-items: flex-start; background: color-mix(in srgb, currentColor 7%, var(--surface)); border: 1px solid color-mix(in srgb, currentColor 16%, transparent); }
 .alert > div { color: var(--fg-2); }
 .alert > div b, .alert > div strong { color: var(--fg); }
 .alert svg { width: 20px; height: 20px; flex: none; margin-top: 1px; }
@@ -165,8 +165,7 @@
 
 /* ---------- Equipment image placeholder ---------- */
 .eq-img { aspect-ratio: 4 / 3; max-width: 100%; border-radius: var(--r); overflow: hidden; position: relative; background: var(--surface-3); }
-.eq-img svg { width: 100%; height: 100%; display: block; }
-.eq-grid line { stroke: var(--art-detail); stroke-opacity: .04; stroke-width: .5; }
+.eq-img img { width: 100%; height: 100%; display: block; object-fit: cover; }
 
 /* ---------- Chat ---------- */
 .chat { display: grid; grid-template-columns: 300px minmax(0, 1fr); height: min(640px, calc(100vh - 200px)); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); }
@@ -183,7 +182,7 @@
 
 /* ---------- Page header ---------- */
 .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
-.page-head h1 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; }
+.page-head h1 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; }
 .page-head p { color: var(--fg-3); margin-top: 4px; }
 
 /* ---------- Charts ---------- */

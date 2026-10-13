@@ -83,7 +83,7 @@ export default function Landlords({ role }: CrmPageProps) {
   const debt = hist.filter((h) => h.ppay === 'Долг').reduce((a, h) => a + h.sum, 0)
 
   const eqCols: Col<Row>[] = [
-    { key: 't', title: 'Техника', render: (e) => <div className="row" style={{ gap: 10, flexWrap: 'nowrap' }}><div className="ca-eq-thumb hide-mobile"><div className="eq-img"><EquipmentArt category={e.category} /></div></div><div><b>{e.title}</b><div className="muted mono" style={{ fontSize: 12 }}>{e.plate} · {e.year}</div></div></div> },
+    { key: 't', title: 'Техника', render: (e) => <div className="row" style={{ gap: 10, flexWrap: 'nowrap' }}><div className="ca-eq-thumb hide-mobile"><div className="eq-img"><EquipmentArt seed={e.id} category={e.category} /></div></div><div><b>{e.title}</b><div className="muted mono" style={{ fontSize: 12 }}>{e.plate} · {e.year}</div></div></div> },
     { key: 'c', title: 'Тип', hideMobile: true, render: (e) => categoryOne[e.category] },
     { key: 'd', title: 'Водитель', hideMobile: true, render: (e) => short(emp(e.driverId)?.name) },
     { key: 'm', title: 'Менеджер', hideMobile: true, render: (e) => short(emp(e.managerId)?.name) },
@@ -215,7 +215,7 @@ function PartnerEqCard({ role, e, onClose, onEdit, onStatus }: { role: CrmRole; 
         {e.lstatus === 'В работе' && <button className="btn btn-secondary" onClick={() => onStatus('Свободная', 'Техника освобождена')}>Освободить</button>}
       </>}>
       <div className="grid g2" style={{ gap: 8 }}>
-        <div className="eq-img"><EquipmentArt category={e.category} label={categoryOne[e.category]} /></div>
+        <div className="eq-img"><EquipmentArt seed={e.id} category={e.category} label={categoryOne[e.category]} /></div>
         <div className="grid g2" style={{ gap: 8 }}>{['Спереди', 'Сбоку', 'Кабина', 'Моточасы'].map((p) => <div key={p} className="ca-doc has" style={{ aspectRatio: '4 / 3' }}>{p}</div>)}</div>
       </div>
       <div className="row"><StatusBadge status={e.lstatus} />{e.reason && <span className="muted" style={{ fontSize: 13 }}>Причина: {e.reason}</span>}</div>

@@ -6,8 +6,8 @@
 .auth-form h1 { font-size: 32px; }
 .auth-form a { color: var(--steel); }
 .auth-link { display: inline; border: 0; background: none; padding: 0; color: var(--steel); text-decoration: underline; cursor: pointer; font: inherit; }
-.auth-aside { background: var(--ink) var(--pattern-ink); color: var(--ink-fg); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-.auth-aside::after { content: ""; position: absolute; left: 0; right: 0; bottom: 28px; height: 64px; background: var(--road-orange) left top / 88px 64px repeat-x; opacity: .85; pointer-events: none; }
+.auth-aside { background: var(--ink) var(--arcs) left bottom / 100% 100% no-repeat; color: var(--ink-fg); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+
 .auth-aside > * { position: relative; z-index: 1; }
 .auth-aside h2, .auth-aside h1, .auth-aside h3 { color: var(--ink-fg); }
 .auth-demo { display: flex; flex-direction: column; gap: 8px; }

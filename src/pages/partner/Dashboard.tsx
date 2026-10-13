@@ -76,7 +76,7 @@ export default function Dashboard() {
             {top.map((e, i) => (
               <div key={e.id} className="pt-top">
                 <span className={`pt-rank ${i === 0 ? 'gold' : ''}`}>{i + 1}</span>
-                <div className="pt-top-img"><EquipmentArt category={e.category} /></div>
+                <div className="pt-top-img"><EquipmentArt seed={e.id} category={e.category} /></div>
                 <div className="grow" style={{ minWidth: 0 }}>
                   <div style={{ fontWeight: 600, fontSize: 14 }} className="pt-ell">{e.title}</div>
                   <div className="pt-top-bar"><span style={{ width: `${(revenueOf(e) / maxRev) * 100}%` }} /></div>

@@ -67,7 +67,7 @@ export default function CalculatorPage() {
             </select>
           </Field>
           <div className="row" style={{ gap: 14, alignItems: 'flex-start' }}>
-            <div style={{ width: 120 }}><EquipmentArt category={e.category} label={e.title} /></div>
+            <div style={{ width: 120 }}><EquipmentArt seed={e.id} category={e.category} label={e.title} /></div>
             <div className="grow stack-sm" style={{ fontSize: 13 }}>
               <b style={{ fontSize: 15 }}>{e.title}</b>
               <span className="muted">{e.short}</span>

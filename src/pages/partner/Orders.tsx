@@ -77,7 +77,7 @@ export default function Orders() {
           {open.status === 'Оплачено' && <button className="btn btn-primary" onClick={() => move(open, 'Выполнена', 'Заказ закрыт, путевой лист и акт прикреплены', { docs: ['Договор-заявка', 'Путевой лист', 'Акт', 'Счёт'] })}><CheckCheck />Отметить выполненным</button>}
         </>}>
           <div className="row" style={{ gap: 14, alignItems: 'flex-start' }}>
-            <div style={{ width: 110, flex: 'none' }}><EquipmentArt category={e.category} /></div>
+            <div style={{ width: 110, flex: 'none' }}><EquipmentArt seed={e.id} category={e.category} /></div>
             <div className="grow stack-sm"><StatusBadge status={open.status} /><b>{e.title}</b><span className="muted" style={{ fontSize: 13 }}>{e.plate}</span></div>
           </div>
           {open.reason && <div className="alert alert-bad">Причина отказа: {open.reason}</div>}

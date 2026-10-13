@@ -122,7 +122,7 @@ export default function EquipmentForm({ initial, onClose, onSave }: { initial?: 
         <div className="pt-photos">
           {Array.from({ length: photos }, (_, i) => (
             <div key={i} className="pt-photo">
-              <div style={{ transform: i % 2 ? 'scaleX(-1)' : undefined }}><EquipmentArt category={f.category} label={`Фото ${i + 1}`} /></div>
+              <div><EquipmentArt category={f.category} label={`Фото ${i + 1}`} /></div>
               <button className="pt-photo-x" onClick={() => setPhotos(photos - 1)} aria-label="Удалить фото"><X size={12} /></button>
               {i === 0 && <span className="pt-photo-main">обложка</span>}
             </div>

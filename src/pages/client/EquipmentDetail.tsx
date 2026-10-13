@@ -35,11 +35,11 @@ export default function EquipmentDetail() {
       <div className="cl-detail">
         <div className="stack" style={{ minWidth: 0 }}>
           <div className="card cl-gallery">
-            <div className="cl-gallery-main" style={{ transform: shot % 2 ? 'scaleX(-1)' : undefined }}><EquipmentArt category={e.category} label={e.title} /></div>
+            <div className="cl-gallery-main"><EquipmentArt seed={e.id} category={e.category} label={e.title} /></div>
             <div className="cl-thumbs">
               {['Общий вид', 'Сзади', 'Кабина', 'Навесное'].map((l, i) => (
                 <button key={l} className={`cl-thumb ${shot === i ? 'on' : ''}`} onClick={() => setShot(i)} aria-label={l}>
-                  <div style={{ transform: i % 2 ? 'scaleX(-1)' : undefined }}><EquipmentArt category={e.category} label={l} /></div>
+                  <div><EquipmentArt seed={e.id} category={e.category} label={l} /></div>
                 </button>
               ))}
             </div>

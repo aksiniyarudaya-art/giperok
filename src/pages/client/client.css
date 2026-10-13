@@ -55,8 +55,8 @@
 .cl-eq-addr { display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--fg-3); min-width: 0; }
 .cl-eq-addr svg { flex: none; }
 .cl-eq-foot { margin-top: auto; padding-top: 8px; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; border-top: 1px dashed var(--line); }
-.cl-price { display: flex; align-items: baseline; gap: 2px; }
-.cl-price b { font: 600 18px/1.1 var(--font-display); }
+.cl-price { display: flex; align-items: baseline; gap: 2px; white-space: nowrap; }
+.cl-price b { font: 800 18px/1.1 var(--font-display); }
 .cl-price span { font-size: 13px; color: var(--fg-3); }
 .cl-price.lg b { font-size: 28px; }
 

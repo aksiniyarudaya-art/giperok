@@ -48,7 +48,7 @@ export default function Compare() {
                   <th key={e.id}>
                     <div className="cl-cmp-head">
                       <button className="btn btn-ghost btn-icon btn-sm cl-cmp-x" onClick={() => c.toggleCompare(e.id)} aria-label="Убрать"><X /></button>
-                      <EquipmentArt category={e.category} label={e.title} />
+                      <EquipmentArt seed={e.id} category={e.category} label={e.title} />
                       <Link to={`/client/catalog/${e.id}`} className="cl-eq-title" style={{ fontSize: 14, textTransform: 'none', letterSpacing: 0 }}>{e.title}</Link>
                       <button className="btn btn-primary btn-sm btn-block" onClick={() => c.book(e.id)}>Забронировать</button>
                     </div>

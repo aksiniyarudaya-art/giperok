@@ -194,7 +194,7 @@ function EquipmentTab() {
     <>
       <Group title="Текущая техника" flush>
         <button type="button" className="drv-eqcard" onClick={() => nav('/driver/equipment')}>
-          <div className="drv-eqcard-img"><EquipmentArt category={myEq.category} label={myEq.title} /></div>
+          <div className="drv-eqcard-img"><EquipmentArt seed={myEq.id} category={myEq.category} label={myEq.title} /></div>
           <div className="drv-eqcard-main">
             <b>{myEq.title}</b><span className="mono">{myEq.plate}</span>
             <span className="drv-row-sub">{categoryOne[myEq.category]} · {myEq.year} г. · {num(myEq.motoHours)} м/ч</span>
@@ -241,7 +241,7 @@ export function EquipmentCard() {
   return (
     <div className="stack drv-pb">
       <div className="drv-eq-hero">
-        <EquipmentArt category={e.category} label={e.title} />
+        <EquipmentArt seed={e.id} category={e.category} label={e.title} />
         <span className="drv-photo-count">Фото · 6</span>
       </div>
       <div className="drv-pad stack">

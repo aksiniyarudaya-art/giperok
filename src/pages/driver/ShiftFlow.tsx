@@ -79,7 +79,7 @@ function StepAccept() {
   return (
     <>
       <div className="drv-flow-eq">
-        <div className="drv-eqcard-img"><EquipmentArt category={myEq.category} label={myEq.title} /></div>
+        <div className="drv-eqcard-img"><EquipmentArt seed={myEq.id} category={myEq.category} label={myEq.title} /></div>
         <div className="grow"><b>{myEq.title}</b><div className="mono dim">{myEq.plate}</div><div className="drv-row-sub">{todayShift.site.name} · {todayShift.start}–{todayShift.end}</div></div>
       </div>
 

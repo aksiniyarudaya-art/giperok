@@ -78,7 +78,7 @@ export default function Dashboard() {
             <div className="stack-sm">
               {cmp.map((e) => (
                 <Link key={e.id} to={`/client/catalog/${e.id}`} className="cl-mini">
-                  <div className="cl-mini-img"><EquipmentArt category={e.category} /></div>
+                  <div className="cl-mini-img"><EquipmentArt seed={e.id} category={e.category} /></div>
                   <div className="grow" style={{ minWidth: 0 }}><div className="cl-near-t">{e.title}</div><div className="muted" style={{ fontSize: 12 }}>★ {e.rating.toFixed(1)} · {e.city}</div></div>
                   <b className="tnum" style={{ fontSize: 13 }}>{money(e.pricePerHour)}</b>
                 </Link>
@@ -93,7 +93,7 @@ export default function Dashboard() {
               const d = availableDate(e)
               return (
                 <Link key={e.id} to={`/client/catalog/${e.id}`} className="cl-mini">
-                  <div className="cl-mini-img"><EquipmentArt category={e.category} /></div>
+                  <div className="cl-mini-img"><EquipmentArt seed={e.id} category={e.category} /></div>
                   <div className="grow" style={{ minWidth: 0 }}><div className="cl-near-t">{e.title}</div><div className="muted" style={{ fontSize: 12 }}>{categoryLabels[e.category as EquipmentCategory]}</div></div>
                   {d ? <span className="badge badge-warn plain"><CalendarClock size={12} />{dateShort(d)}</span> : <span className="badge badge-ok plain">свободна</span>}
                 </Link>

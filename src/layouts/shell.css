@@ -1,17 +1,18 @@
 .logo { display: inline-flex; align-items: flex-end; gap: 10px; text-decoration: none; color: var(--fg); }
 .logo-mark { color: var(--accent); flex: none; }
-.logo-text { display: flex; flex-direction: column; gap: 3px; line-height: 1; }
-.logo-text b { font: 600 17px/1 var(--font-display); letter-spacing: .06em; }
-.logo-text small { font-size: 8.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.logo-word { display: block; overflow: visible; }
+.logo-name { font: 700 31px var(--font-display); fill: currentColor; }
+.logo-sub { font: 500 7.2px var(--font-body); fill: var(--fg-3); }
 .logo.inv { color: var(--ink-fg); }
-.logo.inv small { color: var(--ink-fg-2); }
+.logo.inv .logo-sub { fill: var(--ink-fg-2); }
+@media (max-width: 480px) { .logo-word { width: 124px; height: auto; } .logo-mark { width: 30px; height: 30px; } .logo { gap: 7px; } }
 
 .shell { display: flex; min-height: 100%; }
 .side {
   width: var(--sidebar-w); flex: none; background: var(--surface); color: var(--fg); border-right: 1px solid var(--line);
   display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; z-index: 60; isolation: isolate;
 }
-.side::before { content: ""; position: absolute; inset: auto 0 0 0; height: 220px; background: var(--pattern-light) left bottom; mask-image: linear-gradient(transparent, rgba(0,0,0,.5)); pointer-events: none; z-index: -1; }
+
 .side-top { display: flex; align-items: center; justify-content: space-between; padding: 18px 18px 10px; }
 .side-close { display: none; color: var(--fg-3); }
 .side-area { margin: 6px 18px 12px; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-strong); }
@@ -19,12 +20,13 @@
 .side-group + .side-group { margin-top: 14px; }
 .side-title { font-size: 10.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); padding: 6px 10px; opacity: .8; }
 .side-link {
-  display: flex; align-items: center; gap: 12px; padding: 9px 10px; border-radius: 8px; text-decoration: none;
+  display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; text-decoration: none;
   color: var(--fg-2); font-weight: 400; font-size: 14px; transition: background .2s, color .2s;
 }
 .side-link svg { width: 18px; height: 18px; flex: none; stroke-width: 1.6; color: var(--fg-3); transition: color .2s; }
 .side-link:hover { background: var(--surface-2); color: var(--fg); }
-.side-link.on { background: var(--surface-2); color: var(--fg); font-weight: 500; box-shadow: inset 2px 0 0 var(--accent); }
+.side-link.on { background: var(--ink); color: var(--ink-fg); font-weight: 600; box-shadow: 0 8px 18px -10px color-mix(in srgb, var(--ink) 80%, transparent); }
+.side-link.on em { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
 .side-link.on svg { color: var(--accent); }
 .side-link em { margin-left: auto; font-style: normal; font-size: 11px; font-weight: 500; background: transparent; color: var(--accent-strong); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 999px; padding: 1px 7px; }
 .side-user { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-top: 1px solid var(--line); }
@@ -40,7 +42,7 @@
 .topbar-title { flex: 1; font-weight: 600; color: var(--fg-2); font-size: 14px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .topbar .dot { position: absolute; top: 6px; right: 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--bad); }
 .burger { display: none; }
-.content { padding: 24px 28px 48px; flex: 1; min-width: 0; max-width: 1440px; width: 100%; }
+.content { padding: 24px 28px 48px; flex: 1; min-width: 0; max-width: 1440px; width: 100%; margin-inline: auto; }
 .side-scrim { display: none; }
 
 @media (max-width: 960px) {

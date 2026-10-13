@@ -35,7 +35,7 @@ export default function MyEquipment() {
   const cols: Col<Equipment>[] = [
     { key: 't', title: 'Техника', render: (e) => (
       <div className="row" style={{ gap: 12, flexWrap: 'nowrap' }}>
-        <div className="pt-thumb"><EquipmentArt category={e.category} /></div>
+        <div className="pt-thumb"><EquipmentArt seed={e.id} category={e.category} /></div>
         <div style={{ minWidth: 0 }}><div style={{ fontWeight: 600 }}>{e.title}</div><div className="muted" style={{ fontSize: 12 }}>{categoryOne[e.category]} · <span className="mono">{e.plate}</span> · {e.year}</div></div>
       </div>
     ) },
@@ -71,7 +71,7 @@ export default function MyEquipment() {
           {open.status === 'Архив' && <button className="btn btn-secondary" onClick={() => setStatus(open, 'На модерации', 'Техника восстановлена и отправлена на модерацию')}><RotateCcw />Восстановить</button>}
           {open.status !== 'Архив' && <button className="btn btn-primary" onClick={() => setForm({ e: open })}><Pencil />Редактировать</button>}
         </>}>
-          <EquipmentArt category={open.category} label={open.title} />
+          <EquipmentArt seed={open.id} category={open.category} label={open.title} />
           <div className="row"><StatusBadge status={open.status} />{open.availableFrom && <span className="muted" style={{ fontSize: 13 }}>освободится {date(open.availableFrom)}</span>}</div>
           {(open.status === 'Арендована' || open.status === 'Забронирована') && <div className="alert alert-info" style={{ fontSize: 13 }}><ShieldAlert /><div>Техника в заказе — скрыть или архивировать можно после его завершения.</div></div>}
           <div className="grid g3">

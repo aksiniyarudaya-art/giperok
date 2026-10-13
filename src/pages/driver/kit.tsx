@@ -96,7 +96,7 @@ export function DemoPhoto({ label, kind }: { label: string; kind?: string }) {
       ) : kind === 'moto' ? (
         <div className="drv-demo-moto mono" aria-hidden>{String(Math.round(myEq.motoHours)).padStart(6, '0')}<small>м/ч</small></div>
       ) : (
-        <EquipmentArt category={myEq.category} label={label} />
+        <EquipmentArt seed={myEq.id} category={myEq.category} label={label} />
       )}
       <span className="drv-demo-tag">демо</span>
     </div>

@@ -97,7 +97,7 @@ export default function HomeScreen() {
       {/* Техника */}
       <Group title="Назначенная техника" flush>
         <button type="button" className="drv-eqcard" onClick={() => nav('/driver/equipment')}>
-          <div className="drv-eqcard-img"><EquipmentArt category={myEq.category} label={myEq.title} /></div>
+          <div className="drv-eqcard-img"><EquipmentArt seed={myEq.id} category={myEq.category} label={myEq.title} /></div>
           <div className="drv-eqcard-main">
             <b>{myEq.title}</b>
             <span className="mono">{myEq.plate}</span>

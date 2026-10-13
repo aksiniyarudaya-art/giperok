@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import { Logo } from '../../layouts/Logo'
 import { EquipmentArt, Modal, money, useToast } from '../../ui'
+import { brandPhoto } from '../../ui/EquipmentArt'
 import { equipment, regions } from '../../data/mock'
 import { categoryLabels, categoryOne, type EquipmentCategory } from '../../data/types'
 import './landing.css'
@@ -17,7 +18,7 @@ function Header() {
   return (
     <header className="l-header">
       <div className="l-wrap l-header-in">
-        <Logo inverted />
+        <Logo />
         <nav className="l-nav hide-mobile">
           <a href="#catalog">Каталог</a>
           <a href="#how">Как это работает</a>
@@ -25,9 +26,9 @@ function Header() {
           <a href="#contacts">Контакты</a>
         </nav>
         <div className="row" style={{ gap: 8 }}>
-          <Link to="/login" className="btn btn-ghost btn-sm l-login">Войти</Link>
+          <Link to="/login" className="btn btn-ghost btn-sm">Войти</Link>
           <div className="l-reg">
-            <button className="btn btn-sm l-reg-btn" onClick={() => setOpen(!open)} aria-expanded={open}>Регистрация <ChevronDown size={16} /></button>
+            <button className="btn btn-primary btn-sm" onClick={() => setOpen(!open)} aria-expanded={open}>Регистрация <ChevronDown size={16} /></button>
             {open && (
               <div className="l-reg-menu" onMouseLeave={() => setOpen(false)}>
                 <Link to="/register?role=client"><Truck size={18} /><span><b>Арендую технику</b><small>Для застройщиков, подрядчиков и частных лиц</small></span></Link>
@@ -105,14 +106,16 @@ function Hero({ aud, setAud }: { aud: Audience; setAud: (a: Audience) => void })
           </div>
         </div>
 
+        <div className="l-hero-visual">
+        <div className="l-hero-photo frame"><span className="frame-c" /><img src={brandPhoto('hero')} alt="Гусеничный экскаватор JCB на площадке" /></div>
         <div className="l-board" aria-label="Свободная техника рядом">
           <div className="l-board-head">
             <span className="l-live"><i />Свободны сейчас · {city}</span>
             <span className="mono muted">13.10 · 07:12</span>
           </div>
-          {free.map((e, i) => (
+          {free.slice(0, 2).map((e, i) => (
             <Link key={e.id} to={`/client/catalog/${e.id}`} className="l-ticket" style={{ animationDelay: `${i * 90}ms` }}>
-              <div className="l-ticket-art"><EquipmentArt category={e.category} /></div>
+              <div className="l-ticket-art"><EquipmentArt seed={e.id} category={e.category} /></div>
               <div className="grow">
                 <div className="l-ticket-cat">{categoryOne[e.category]}</div>
                 <div className="l-ticket-title">{e.title}</div>
@@ -131,17 +134,19 @@ function Hero({ aud, setAud }: { aud: Audience; setAud: (a: Audience) => void })
             <span>Выход на объект <b>ЖК «Сокол»</b> в 07:30 подтверждён водителем</span>
           </div>
         </div>
+        </div>
       </div>
+      <div className="l-road" aria-hidden><i /></div>
     </section>
   )
 }
 
 function Numbers() {
   const items: [string, string][] = [
-    ['640+', 'единиц техники в каталоге'],
-    ['98,6%', 'выходов на объект в срок'],
-    ['2 часа', 'максимальное время замены'],
-    ['6 областей', 'Беларуси, от Бреста до Витебска'],
+    ['12 лет', 'на рынке аренды спецтехники'],
+    ['80', 'единиц техники в собственном парке'],
+    ['300 т', 'грузоподъёмность автокранов'],
+    ['120 т', 'грузоподъёмность тралов'],
   ]
   return (
     <section className="l-numbers">
@@ -189,7 +194,7 @@ function Catalog() {
           {list.map((e) => (
             <article key={e.id} className="l-card">
               <div className="l-card-img">
-                <EquipmentArt category={e.category} label={e.title} />
+                <EquipmentArt seed={e.id} category={e.category} label={e.title} />
                 <button className={`l-fav ${fav.includes(e.id) ? 'on' : ''}`} aria-label="В избранное" onClick={() => setFav((f) => f.includes(e.id) ? f.filter((x) => x !== e.id) : [...f, e.id])}><Heart size={18} /></button>
                 {e.status !== 'Свободна' && <span className="l-card-flag">Доступна с {e.availableFrom ? new Date(e.availableFrom).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : '20 октября'}</span>}
               </div>
@@ -239,7 +244,7 @@ function How() {
           ))}
         </ol>
         <div className="l-guarantee">
-          <ShieldCheck size={36} />
+          <span className="l-guarantee-i"><ShieldCheck size={26} /></span>
           <div className="grow">
             <h3>Гарантия выхода на объект</h3>
             <p>Каждый выход подтверждается машинистом в приложении с гео-меткой и фото техники. Если машина не приехала к согласованному времени, мы бесплатно подаём замену в течение 2 часов или компенсируем смену.</p>
@@ -268,6 +273,8 @@ function Owners() {
           </div>
           <div className="row"><Link to="/register?role=partner" className="btn btn-primary btn-lg">Стать партнёром<ArrowRight /></Link><Link to="/partner/dashboard" className="btn btn-ghost btn-lg" style={{ color: 'var(--ink-fg)' }}>Посмотреть кабинет</Link></div>
         </div>
+        <div className="l-owners-side">
+        <div className="l-owners-photo frame"><span className="frame-c" /><img src={brandPhoto('owners')} alt="Экскаватор-погрузчик" /></div>
         <div className="l-mini-dash" aria-label="Пример кабинета партнёра">
           <div className="row-between"><b>Загрузка парка · октябрь</b><span className="badge badge-ok">+12%</span></div>
           {[['JCB JS220LC', 92], ['Ивановец КС-45717-1', 78], ['МАЗ 6501C9', 64], ['Bobcat S650', 31]].map(([n, v]) => (
@@ -277,6 +284,7 @@ function Owners() {
             </div>
           ))}
           <div className="l-mini-row"><span>К выплате 20.10</span><b className="tnum">18 640 BYN</b></div>
+        </div>
         </div>
       </div>
     </section>
@@ -300,7 +308,7 @@ function Leads({ onConsent }: { onConsent: () => void }) {
             <input id="lead-c-email" className="input" type="email" required placeholder="Рабочая почта" />
             <button className="btn btn-dark">Получить</button>
           </div>
-          <label className="check"><input id="lead-c-consent" type="checkbox" required />Согласен на <button type="button" className="l-link" onClick={onConsent}>обработку персональных данных</button></label>
+          <label className="check l-consent"><input id="lead-c-consent" type="checkbox" required /><span>Согласен на <button type="button" className="l-link" onClick={onConsent}>обработку персональных данных</button></span></label>
         </form>
         <form className="l-lead l-lead-owner" id="owner-lead" onSubmit={(e) => { e.preventDefault(); toast('Расчёт доходности отправлен, менеджер свяжется в течение часа') }}>
           <div className="eyebrow">Для владельцев техники</div>
@@ -320,7 +328,7 @@ function Leads({ onConsent }: { onConsent: () => void }) {
             <input id="lead-o-phone" className="input" type="tel" required placeholder="+375 (__) ___-__-__" />
             <button className="btn btn-primary">Получить расчёт</button>
           </div>
-          <label className="check"><input id="lead-o-consent" type="checkbox" required />Согласен на <button type="button" className="l-link" onClick={onConsent}>обработку персональных данных</button></label>
+          <label className="check l-consent"><input id="lead-o-consent" type="checkbox" required /><span>Согласен на <button type="button" className="l-link" onClick={onConsent}>обработку персональных данных</button></span></label>
         </form>
       </div>
     </section>
@@ -338,8 +346,8 @@ function Feedback({ onConsent }: { onConsent: () => void }) {
           <h2>Не нашли нужную технику? Подберём за 15 минут</h2>
           <p className="muted" style={{ maxWidth: 460 }}>Опишите задачу: что нужно сделать, где и когда. Менеджер перезвонит, предложит варианты и посчитает смету.</p>
           <div className="l-contacts">
-            <div><Phone size={18} /><span><b className="tnum">+375 17 388-00-00</b><small>ежедневно 07:00–22:00</small></span></div>
-            <div><MapPin size={18} /><span><b>Минск, ул. Олешева, 9</b><small>офис и диспетчерская</small></span></div>
+            <div><Phone size={18} /><span><b className="tnum">+375 (44) 582-11-11</b><small>ежедневно 07:00–22:00</small></span></div>
+            <div><MapPin size={18} /><span><b>Минск, ул. Ваупшасова, 10</b><small>каб. 154, 3 этаж</small></span></div>
           </div>
         </div>
         <form className="card stack" onSubmit={(e) => { e.preventDefault(); setSent(true); toast('Заявка принята, перезвоним в течение 15 минут') }}>
@@ -352,7 +360,7 @@ function Feedback({ onConsent }: { onConsent: () => void }) {
                 <label className="field"><span className="label req">Телефон</span><input id="fb-phone" className="input" type="tel" required placeholder="+375 (__) ___-__-__" /></label>
               </div>
               <label className="field"><span className="label">Задача</span><textarea id="fb-text" className="textarea" placeholder="Например: котлован 12×18 м, глубина 3 м, Минск, Брилевская, с 20 октября" /></label>
-              <label className="check"><input id="fb-consent" type="checkbox" required />Даю согласие на <button type="button" className="l-link" onClick={onConsent}>обработку персональных данных</button> в соответствии с Законом РБ № 99-З</label>
+              <label className="check l-consent"><input id="fb-consent" type="checkbox" required /><span>Согласен на <button type="button" className="l-link" onClick={onConsent}>обработку персональных данных</button></span></label>
               <button className="btn btn-primary btn-lg">Отправить заявку</button>
             </>
           )}
@@ -368,13 +376,14 @@ function Footer({ onConsent }: { onConsent: () => void }) {
       <div className="l-wrap l-footer-in">
         <div className="stack" style={{ gap: 12 }}>
           <Logo inverted />
-          <p style={{ maxWidth: 300 }}>Платформа аренды спецтехники с гарантией выхода на объект.</p>
+          <p style={{ maxWidth: 300 }}>Собственный парк из 80 единиц техники и логистика под одним договором.</p>
+          <p className="tnum"><a href="tel:+375445821111">+375 (44) 582-11-11</a><br /><a href="mailto:info@giperok.by">info@giperok.by</a></p>
         </div>
         <div className="l-fcol"><b>Заказчикам</b><Link to="/client/catalog">Каталог техники</Link><Link to="/client/map">Карта свободных машин</Link><Link to="/client/calculator">Калькулятор смены</Link><Link to="/register?role=client">Регистрация</Link></div>
         <div className="l-fcol"><b>Владельцам</b><Link to="/register?role=partner">Стать партнёром</Link><Link to="/partner/learning">Обучение</Link><Link to="/driver">Приложение водителя</Link></div>
         <div className="l-fcol"><b>Компания</b><Link to="/crm/manager/dashboard">Вход для сотрудников</Link><button className="l-link" onClick={onConsent}>Политика обработки персональных данных</button><span>ООО «Гиперок», УНП 193000001</span></div>
       </div>
-      <div className="l-wrap l-copy">© 2026 Гиперок. Минск, ул. Олешева, 9 · +375 17 388-00-00</div>
+      <div className="l-wrap l-copy">© 2026 Гиперок · Надёжность, проверенная дорогой · г. Минск, ул. Ваупшасова, 10</div>
     </footer>
   )
 }

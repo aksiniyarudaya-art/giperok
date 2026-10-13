@@ -10,8 +10,8 @@ body {
   font-feature-settings: "cv11", "ss01";
 }
 h1, h2, h3, h4 { margin: 0; text-wrap: balance; color: var(--fg); }
-h1 { font: 600 clamp(28px, 4vw, 44px)/1.1 var(--font-display); letter-spacing: -.022em; }
-h2 { font: 500 clamp(24px, 2.8vw, 38px)/1.15 var(--font-display); letter-spacing: -.022em; }
+h1 { font: 700 clamp(28px, 4vw, 44px)/1.12 var(--font-display); letter-spacing: -.01em; }
+h2 { font: 700 clamp(24px, 2.8vw, 38px)/1.18 var(--font-display); letter-spacing: -.008em; }
 h3 { font: 600 17px/1.35 var(--font-body); letter-spacing: -.005em; }
 h4 { font: 600 15px/1.35 var(--font-body); }
 p { margin: 0; }
@@ -41,4 +41,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 
 /* фирменная фактура «Дороги» для тёмных блоков */
-.brand-dark { background-color: var(--ink); background-image: var(--pattern-ink); color: var(--ink-fg); }
+.brand-dark { background: var(--ink); color: var(--ink-fg); }
+/* оранжевые уголки вокруг фото, как в презентации */
+.frame { position: relative; }
+.frame::before, .frame::after { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--accent); pointer-events: none; z-index: 2; }
+.frame::before { left: -8px; top: -8px; border-right: 0; border-bottom: 0; }
+.frame::after { right: -8px; bottom: -8px; border-left: 0; border-top: 0; }
+.frame > .frame-c::before, .frame > .frame-c::after { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--accent); pointer-events: none; z-index: 2; }
+.frame > .frame-c::before { right: -8px; top: -8px; border-left: 0; border-bottom: 0; }
+.frame > .frame-c::after { left: -8px; bottom: -8px; border-right: 0; border-top: 0; }

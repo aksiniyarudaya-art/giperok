@@ -31,7 +31,7 @@ export default function BookingModal({ equipmentId, prefill, onClose }: { equipm
   if (!c.hasContract) {
     return (
       <Modal title="Нужен договор аренды" onClose={onClose} footer={<>
-        <button className="btn btn-ghost" onClick={() => toast('Звонок менеджеру: +375 17 388-00-00 (демо)')}><Phone />Позвонить</button>
+        <button className="btn btn-ghost" onClick={() => toast('Звонок менеджеру: +375 (44) 582-11-11 (демо)')}><Phone />Позвонить</button>
         {c.contractRequested
           ? <button className="btn btn-secondary" onClick={onClose}>Понятно</button>
           : <button className="btn btn-primary" onClick={() => { c.requestContract(); onClose() }}><FileSignature />Заключить договор</button>}

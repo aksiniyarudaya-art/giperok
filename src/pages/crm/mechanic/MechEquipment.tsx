@@ -88,7 +88,7 @@ export default function MechEquipment({ role }: CrmPageProps) {
             const ex = eq(x.id)!
             return (
               <article key={x.id} className="card cx-eq" onClick={() => setOpenId(x.id)}>
-                <div style={{ position: 'relative' }}><EquipmentArt category={ex.category} /><span className="cx-eq-state"><XBadge s={x.state} /></span></div>
+                <div style={{ position: 'relative' }}><EquipmentArt seed={ex.id} category={ex.category} /><span className="cx-eq-state"><XBadge s={x.state} /></span></div>
                 <div className="cx-eq-b">
                   <div className="row-between"><b>{ex.title}</b><span className="mono cx-mini">{ex.plate}</span></div>
                   <div className="cx-meta">
@@ -116,7 +116,7 @@ export default function MechEquipment({ role }: CrmPageProps) {
               : <button className="btn btn-primary btn-sm" onClick={() => setModal('start')}><Play />Начать ремонт</button>}
           </div>}>
           <div className="stack">
-            <div style={{ position: 'relative' }}><EquipmentArt category={e.category} label={e.plate} /></div>
+            <div style={{ position: 'relative' }}><EquipmentArt seed={e.id} category={e.category} label={e.plate} /></div>
             <div className="cx-sec">
               <div className="cx-sec-h"><h4>Статус</h4><XBadge s={u.state} /></div>
               <Seg value={u.state} onChange={setState} items={states.map((s) => ({ id: s, label: s }))} />

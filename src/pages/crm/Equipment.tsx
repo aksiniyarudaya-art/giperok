@@ -175,7 +175,7 @@ export default function EquipmentPage({ role }: CrmPageProps) {
   const cols: Col<EqRow>[] = [
     { key: 't', title: 'Техника', render: (e) => (
       <div className="row" style={{ gap: 10, flexWrap: 'nowrap' }}>
-        <div className="ca-eq-thumb hide-mobile"><div className="eq-img"><EquipmentArt category={e.category} /></div></div>
+        <div className="ca-eq-thumb hide-mobile"><div className="eq-img"><EquipmentArt seed={e.id} category={e.category} /></div></div>
         <div style={{ minWidth: 0 }}><b>{e.title}</b><div className="muted mono" style={{ fontSize: 12 }}>{e.plate} · {e.year}</div></div>
       </div>) },
     { key: 'c', title: 'Тип', hideMobile: true, render: (e) => categoryOne[e.category] },
@@ -303,7 +303,7 @@ function EqCard({ role, e, onClose, onEdit, onAssign, onNote, onTo, onArchive, o
       <button className="btn btn-secondary" onClick={onEdit}>Редактировать</button>
       <button className="btn btn-primary" onClick={onAssign} disabled={status === 'ТО'}><Send />Назначить</button>
     </>}>
-      <div className="eq-img" style={{ maxHeight: 220 }}><EquipmentArt category={e.category} label={categoryOne[e.category]} /></div>
+      <div className="eq-img" style={{ maxHeight: 220 }}><EquipmentArt seed={e.id} category={e.category} label={categoryOne[e.category]} /></div>
       <div className="row"><StatusBadge status={status} />{e.extras.map((x) => <span key={x} className="ca-chip">{x}</span>)}</div>
       <KV items={[
         row('Тип', categoryOne[e.category]),
