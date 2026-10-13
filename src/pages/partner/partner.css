@@ -12,7 +12,7 @@
 .pt-load-t > span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
 @media (max-width: 520px) { .pt-load { grid-template-columns: minmax(0, 1fr) 42px; } .pt-load .bar { grid-column: 1 / -1; grid-row: 2; } .pt-load-t .badge { display: none; } }
 .pt-top { display: flex; align-items: center; gap: 12px; padding: 6px 0; }
-.pt-rank { width: 24px; height: 24px; border-radius: 7px; background: var(--surface-3); display: grid; place-items: center; font-size: 12px; font-weight: 700; flex: none; color: var(--fg-2); }
+.pt-rank { width: 24px; height: 24px; border-radius: 7px; background: var(--surface-3); display: grid; place-items: center; font-size: 12px; font-weight: 600; flex: none; color: var(--fg-2); }
 .pt-rank.gold { background: var(--accent); color: var(--accent-fg); }
 .pt-top-img { width: 52px; flex: none; }
 .pt-top-img .eq-img { border-radius: 8px; }
@@ -36,7 +36,7 @@
 .pt-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
 .pt-photo { position: relative; }
 .pt-photo-x { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: var(--ink); color: var(--ink-fg); display: grid; place-items: center; cursor: pointer; }
-.pt-photo-main { position: absolute; left: 4px; bottom: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: var(--accent); color: var(--accent-fg); border-radius: 4px; padding: 1px 5px; }
+.pt-photo-main { position: absolute; left: 4px; bottom: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; background: var(--accent); color: var(--accent-fg); border-radius: 4px; padding: 1px 5px; }
 .pt-photo-add { aspect-ratio: 4 / 3; border: 2px dashed var(--line-strong); border-radius: var(--r); background: var(--surface-2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; color: var(--fg-2); font-weight: 600; font-size: 12px; }
 .pt-photo-add span { color: var(--fg-3); font-weight: 500; }
 .pt-docs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 8px; }
@@ -77,7 +77,7 @@
 .pt-lesson-cover .pt-shot { border-radius: 0; border: 0; border-bottom: 1px solid var(--line); }
 .pt-lesson-play { position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink-fg); }
 .pt-lesson-play svg { width: 52px; height: 52px; background: var(--ink); border-radius: 50%; padding: 10px; opacity: .88; }
-.pt-lesson-dur { position: absolute; right: 8px; bottom: 8px; font-size: 11px; font-weight: 700; background: var(--ink); color: var(--ink-fg); border-radius: 4px; padding: 2px 6px; font-variant-numeric: tabular-nums; }
+.pt-lesson-dur { position: absolute; right: 8px; bottom: 8px; font-size: 11px; font-weight: 600; background: var(--ink); color: var(--ink-fg); border-radius: 4px; padding: 2px 6px; font-variant-numeric: tabular-nums; }
 .pt-player { position: relative; }
 .pt-player-btn { position: absolute; left: 12px; bottom: 12px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; cursor: pointer; }
 .pt-player-bar { position: absolute; left: 62px; right: 110px; bottom: 30px; height: 4px; background: var(--line-strong); border-radius: 999px; overflow: hidden; }
@@ -85,7 +85,7 @@
 .pt-player-time { position: absolute; right: 12px; bottom: 22px; font-size: 12px; background: var(--ink); color: var(--ink-fg); border-radius: 4px; padding: 2px 6px; }
 .pt-steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
 .pt-steps li { display: flex; gap: 12px; align-items: center; padding: 10px 12px; border-radius: var(--r); cursor: pointer; font-size: 14px; color: var(--fg-2); }
-.pt-steps li span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-3); font-weight: 700; font-size: 12px; flex: none; }
+.pt-steps li span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-3); font-weight: 600; font-size: 12px; flex: none; }
 .pt-steps li.on { background: var(--accent-soft); color: var(--fg); font-weight: 600; }
 .pt-steps li.on span { background: var(--accent); color: var(--accent-fg); }
 .pt-steps li.done span { background: var(--ok-soft); color: var(--ok); }

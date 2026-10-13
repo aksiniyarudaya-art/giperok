@@ -27,7 +27,7 @@ function Header() {
         <div className="row" style={{ gap: 8 }}>
           <Link to="/login" className="btn btn-ghost btn-sm l-login">Войти</Link>
           <div className="l-reg">
-            <button className="btn btn-primary btn-sm" onClick={() => setOpen(!open)} aria-expanded={open}>Регистрация <ChevronDown size={16} /></button>
+            <button className="btn btn-sm l-reg-btn" onClick={() => setOpen(!open)} aria-expanded={open}>Регистрация <ChevronDown size={16} /></button>
             {open && (
               <div className="l-reg-menu" onMouseLeave={() => setOpen(false)}>
                 <Link to="/register?role=client"><Truck size={18} /><span><b>Арендую технику</b><small>Для застройщиков, подрядчиков и частных лиц</small></span></Link>

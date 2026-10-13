@@ -31,7 +31,7 @@ export function Shell({ groups, area, user, userRole, top }: { groups: NavGroup[
     <div className="shell">
       <aside className={`side ${open ? 'open' : ''}`}>
         <div className="side-top">
-          <Logo inverted />
+          <Logo />
           <button className="btn btn-ghost btn-icon btn-sm side-close" onClick={() => setOpen(false)} aria-label="Закрыть меню"><X /></button>
         </div>
         <div className="side-area">{area}</div>

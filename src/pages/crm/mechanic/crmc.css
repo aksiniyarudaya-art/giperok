@@ -70,7 +70,7 @@
 .cx-file .nm { position: absolute; left: 0; right: 0; bottom: 0; padding: 4px 6px; font-size: 11px; background: var(--surface); color: var(--fg-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: .94; }
 .cx-file .rm { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; border-radius: 999px; border: 0; background: var(--surface); color: var(--fg); display: grid; place-items: center; cursor: pointer; box-shadow: var(--shadow); }
 .cx-file .rm svg { width: 14px; height: 14px; }
-.cx-file .tag { position: absolute; top: 4px; left: 4px; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 6px; background: var(--ink); color: var(--ink-fg); }
+.cx-file .tag { position: absolute; top: 4px; left: 4px; font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 6px; background: var(--ink); color: var(--ink-fg); }
 .cx-drop { border: 2px dashed var(--line-strong); border-radius: var(--r); padding: 14px; display: flex; gap: 12px; align-items: center; justify-content: center; cursor: pointer; color: var(--fg-2); font-size: 14px; text-align: center; flex-wrap: wrap; background: var(--surface-2); }
 .cx-drop:hover { border-color: var(--accent); color: var(--fg); }
 .cx-drop input { display: none; }
@@ -79,7 +79,7 @@
 .cx-sec { display: flex; flex-direction: column; gap: 10px; }
 .cx-sec + .cx-sec { border-top: 1px solid var(--line); padding-top: 16px; }
 .cx-sec-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
-.cx-sec-h h4 { font-size: 14px; font-weight: 700; }
+.cx-sec-h h4 { font-size: 14px; font-weight: 600; }
 .cx-note { font-size: 13px; color: var(--fg-3); }
 .cx-mini { font-size: 12px; color: var(--fg-3); }
 .cx-bad { color: var(--bad); font-weight: 600; }
@@ -101,7 +101,7 @@
 .cx-strip { display: grid; grid-template-columns: repeat(14, minmax(46px, 1fr)); gap: 6px; overflow-x: auto; padding-bottom: 4px; }
 .cx-day { border-radius: var(--r); background: var(--surface-2); padding: 8px 6px; min-height: 92px; display: flex; flex-direction: column; gap: 4px; font-size: 11.5px; }
 .cx-day.today { background: var(--accent-soft); }
-.cx-day .d { font-weight: 700; font-size: 12px; }
+.cx-day .d { font-weight: 600; font-size: 12px; }
 .cx-day .w { color: var(--fg-3); font-size: 11px; }
 .cx-chip { border-radius: 6px; padding: 2px 5px; background: var(--surface); border: 1px solid var(--line); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
 .cx-chip.bad { background: var(--bad-soft); color: var(--bad); border-color: transparent; }
