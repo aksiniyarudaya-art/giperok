@@ -6,10 +6,12 @@
 .auth-form h1 { font-size: 32px; }
 .auth-form a { color: var(--steel); }
 .auth-link { display: inline; border: 0; background: none; padding: 0; color: var(--steel); text-decoration: underline; cursor: pointer; font: inherit; }
-.auth-aside { background: var(--ink); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-.auth-aside::after { content: ""; position: absolute; right: -80px; bottom: -80px; width: 280px; height: 280px; border-radius: 50%; border: 48px solid var(--accent); opacity: .12; }
+.auth-aside { background: var(--ink) var(--pattern-ink); color: var(--ink-fg); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.auth-aside::after { content: ""; position: absolute; left: 0; right: 0; bottom: 28px; height: 64px; background: var(--road-orange) left top / 88px 64px repeat-x; opacity: .85; pointer-events: none; }
+.auth-aside > * { position: relative; z-index: 1; }
+.auth-aside h2, .auth-aside h1, .auth-aside h3 { color: var(--ink-fg); }
 .auth-demo { display: flex; flex-direction: column; gap: 8px; }
-.auth-demo a { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 12px; background: var(--ink-2); text-decoration: none; color: var(--ink-fg); transition: transform .12s; }
+.auth-demo a { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 12px; background: color-mix(in srgb, var(--ink-fg) 6%, transparent); border: 1px solid color-mix(in srgb, var(--ink-fg) 8%, transparent); text-decoration: none; color: var(--ink-fg); transition: transform .12s; }
 .auth-demo a:hover { transform: translateX(4px); }
 .auth-demo b { display: block; font-size: 14px; }
 .auth-demo small { color: var(--ink-fg-2); font-size: 12px; }

@@ -1,9 +1,9 @@
 {
-  "name": "СпецХаб Водитель",
-  "short_name": "СпецХаб",
+  "name": "Гиперок Водитель",
+  "short_name": "Гиперок",
   "start_url": "./#/driver",
   "display": "standalone",
-  "background_color": "#16191d",
-  "theme_color": "#16191d",
+  "background_color": "#18223B",
+  "theme_color": "#18223B",
   "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
 }

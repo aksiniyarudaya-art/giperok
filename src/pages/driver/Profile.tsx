@@ -54,7 +54,7 @@ function MeTab() {
       <Group title="Контакты">
         <Row icon={<Phone />} title={me.phone} sub="Рабочий телефон" onClick={() => toast('Номер скопирован')} chevron={false} />
         <Row icon={<Mail />} title={me.email} sub="Почта" chevron={false} />
-        <Row icon={<Send />} title="Telegram-бот СпецХаб" sub="Подключён · @spechub_driver_bot" right={<Badge tone="ok" plain>онлайн</Badge>} chevron={false} />
+        <Row icon={<Send />} title="Telegram-бот Гиперок" sub="Подключён · @giperok_driver_bot" right={<Badge tone="ok" plain>онлайн</Badge>} chevron={false} />
       </Group>
       <Group title="Работа">
         <Row icon={<CalendarDays />} title={`С ${d(me.hiredAt)}`} sub="Дата начала работы" chevron={false} />

@@ -58,7 +58,7 @@ export default function Dialogs() {
         </>}>
           <div className="cl-paper">
             <div className="row-between"><b>{view.kind.toUpperCase()}</b><span className="mono">{date(view.date)}</span></div>
-            <p>Исполнитель: ООО «СпецХаб Платформа», УНП 193000001.<br />Заказчик: ООО «СтройМонолит», УНП 191234567.</p>
+            <p>Исполнитель: ООО «Гиперок», УНП 193000001.<br />Заказчик: ООО «СтройМонолит», УНП 191234567.</p>
             {view.order && <p>Основание: заказ {view.order} на аренду спецтехники с экипажем.</p>}
             {view.amount ? <p>Сумма: <b>{money(view.amount)}</b>, в т. ч. НДС 20% — {money(Math.round(view.amount / 6))}.</p> : <p>Предмет: изменение порядка расчётов — оплата по факту выполненных смен в течение 5 банковских дней.</p>}
             <div className="cl-paper-lines"><span /><span /><span style={{ width: '60%' }} /></div>

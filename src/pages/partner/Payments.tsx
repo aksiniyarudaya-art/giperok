@@ -93,7 +93,7 @@ export default function Payments() {
             <select className="select" value={docType} onChange={(e) => setDocType(e.target.value)} aria-label="Тип документа">
               <option value="">Все типы</option>{types.map((t) => <option key={t}>{t}</option>)}
             </select>
-            <button className="btn btn-secondary" onClick={() => { setExtraDocs((s) => [{ id: `x${Date.now()}`, name: 'Акт сверки', deal: 'Октябрь 2026', date: '2026-10-13', client: 'СпецХаб' }, ...s]); toast('Документ прикреплён') }}><Upload />Прикрепить документ</button>
+            <button className="btn btn-secondary" onClick={() => { setExtraDocs((s) => [{ id: `x${Date.now()}`, name: 'Акт сверки', deal: 'Октябрь 2026', date: '2026-10-13', client: 'Гиперок' }, ...s]); toast('Документ прикреплён') }}><Upload />Прикрепить документ</button>
           </div>
           <DataTable cols={dcols} rows={docs.filter((d) => !docType || d.name === docType)} rowKey={(d) => d.id} />
         </>}

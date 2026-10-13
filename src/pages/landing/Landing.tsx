@@ -17,7 +17,7 @@ function Header() {
   return (
     <header className="l-header">
       <div className="l-wrap l-header-in">
-        <Logo />
+        <Logo inverted />
         <nav className="l-nav hide-mobile">
           <a href="#catalog">Каталог</a>
           <a href="#how">Как это работает</a>
@@ -25,9 +25,9 @@ function Header() {
           <a href="#contacts">Контакты</a>
         </nav>
         <div className="row" style={{ gap: 8 }}>
-          <Link to="/login" className="btn btn-ghost btn-sm">Войти</Link>
+          <Link to="/login" className="btn btn-ghost btn-sm l-login">Войти</Link>
           <div className="l-reg">
-            <button className="btn btn-dark btn-sm" onClick={() => setOpen(!open)} aria-expanded={open}>Регистрация <ChevronDown size={16} /></button>
+            <button className="btn btn-primary btn-sm" onClick={() => setOpen(!open)} aria-expanded={open}>Регистрация <ChevronDown size={16} /></button>
             {open && (
               <div className="l-reg-menu" onMouseLeave={() => setOpen(false)}>
                 <Link to="/register?role=client"><Truck size={18} /><span><b>Арендую технику</b><small>Для застройщиков, подрядчиков и частных лиц</small></span></Link>
@@ -68,6 +68,7 @@ function Hero({ aud, setAud }: { aud: Audience; setAud: (a: Audience) => void })
             <button role="tab" aria-selected={aud === 'tenant'} className={aud === 'tenant' ? 'on' : ''} onClick={() => setAud('tenant')}>Арендую технику</button>
             <button role="tab" aria-selected={aud === 'owner'} className={aud === 'owner' ? 'on' : ''} onClick={() => setAud('owner')}>Сдаю технику</button>
           </div>
+          <span className="l-motto">Надёжность, проверенная дорогой</span>
           <h1 key={aud} className="l-h1">{c.h}</h1>
           <p className="l-sub">{c.p}</p>
           {aud === 'tenant' ? (
@@ -371,9 +372,9 @@ function Footer({ onConsent }: { onConsent: () => void }) {
         </div>
         <div className="l-fcol"><b>Заказчикам</b><Link to="/client/catalog">Каталог техники</Link><Link to="/client/map">Карта свободных машин</Link><Link to="/client/calculator">Калькулятор смены</Link><Link to="/register?role=client">Регистрация</Link></div>
         <div className="l-fcol"><b>Владельцам</b><Link to="/register?role=partner">Стать партнёром</Link><Link to="/partner/learning">Обучение</Link><Link to="/driver">Приложение водителя</Link></div>
-        <div className="l-fcol"><b>Компания</b><Link to="/crm/manager/dashboard">Вход для сотрудников</Link><button className="l-link" onClick={onConsent}>Политика обработки персональных данных</button><span>ООО «СпецХаб», УНП 193000001</span></div>
+        <div className="l-fcol"><b>Компания</b><Link to="/crm/manager/dashboard">Вход для сотрудников</Link><button className="l-link" onClick={onConsent}>Политика обработки персональных данных</button><span>ООО «Гиперок», УНП 193000001</span></div>
       </div>
-      <div className="l-wrap l-copy">© 2026 СпецХаб. Минск, ул. Олешева, 9 · +375 17 388-00-00</div>
+      <div className="l-wrap l-copy">© 2026 Гиперок. Минск, ул. Олешева, 9 · +375 17 388-00-00</div>
     </footer>
   )
 }
@@ -395,9 +396,9 @@ export default function Landing() {
       <Footer onConsent={show} />
       {consent && (
         <Modal title="Согласие на обработку персональных данных" onClose={() => setConsent(false)} footer={<button className="btn btn-primary" onClick={() => setConsent(false)}>Понятно</button>}>
-          <p>Отправляя форму, вы даёте ООО «СпецХаб» (УНП 193000001) согласие на обработку персональных данных: имени, телефона, адреса электронной почты и сведений о компании.</p>
+          <p>Отправляя форму, вы даёте ООО «Гиперок» (УНП 193000001) согласие на обработку персональных данных: имени, телефона, адреса электронной почты и сведений о компании.</p>
           <p>Цель обработки: подбор техники, заключение и исполнение договора аренды, информирование о статусе заказа. Срок действия согласия: 3 года или до его отзыва.</p>
-          <p>Вы можете отозвать согласие, написав на privacy@spechub.by. Обработка ведётся в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p>
+          <p>Вы можете отозвать согласие, написав на privacy@giperok.by. Обработка ведётся в соответствии с Законом Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных».</p>
         </Modal>
       )}
     </div>

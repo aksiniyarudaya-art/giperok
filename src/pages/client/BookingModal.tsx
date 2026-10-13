@@ -36,7 +36,7 @@ export default function BookingModal({ equipmentId, prefill, onClose }: { equipm
           ? <button className="btn btn-secondary" onClick={onClose}>Понятно</button>
           : <button className="btn btn-primary" onClick={() => { c.requestContract(); onClose() }}><FileSignature />Заключить договор</button>}
       </>}>
-        <div className="alert alert-warn"><AlertTriangle /><div>Бронирование <b>{e.title}</b> доступно только компаниям с действующим договором на платформе СпецХаб. Он гарантирует выход техники на объект и фиксирует цены.</div></div>
+        <div className="alert alert-warn"><AlertTriangle /><div>Бронирование <b>{e.title}</b> доступно только компаниям с действующим договором на платформе Гиперок. Он гарантирует выход техники на объект и фиксирует цены.</div></div>
         <ol className="cl-steps">
           <li><b>Оставьте заявку</b><span>Проверим реквизиты по УНП — 10 минут.</span></li>
           <li><b>Подпишите договор в ЭДО</b><span>Документ придёт в раздел «Диалоги → Документы на подпись».</span></li>

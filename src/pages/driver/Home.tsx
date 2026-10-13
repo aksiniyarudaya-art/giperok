@@ -152,7 +152,7 @@ export function Notifications() {
             onClick={() => { setNotices((s) => s.map((x) => (x.id === n.id ? { ...x, read: true } : x))); if (n.to) nav(n.to) }} />
         ))}
       </Group>
-      <p className="muted drv-note">Уведомления дублируются в Telegram-бот СпецХаб (демо).</p>
+      <p className="muted drv-note">Уведомления дублируются в Telegram-бот Гиперок (демо).</p>
     </div>
   )
 }

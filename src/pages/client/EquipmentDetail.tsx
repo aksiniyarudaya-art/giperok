@@ -55,7 +55,7 @@ export default function EquipmentDetail() {
               <Rating value={e.rating} reviews={e.reviews} />
               <span className="row dim" style={{ gap: 6 }}><MapPin size={15} />{e.address}</span>
             </div>
-            <p className="dim" style={{ marginTop: 12 }}>{e.short} Год выпуска {e.year}, наработка {num(e.motoHours)} м/ч. Техника прошла проверку СпецХаб: документы, страховка, технический осмотр.</p>
+            <p className="dim" style={{ marginTop: 12 }}>{e.short} Год выпуска {e.year}, наработка {num(e.motoHours)} м/ч. Техника прошла проверку Гиперок: документы, страховка, технический осмотр.</p>
             <div className="cl-keyspecs">
               {specFields[e.category].filter((k) => e[k] !== undefined).map((k) => (
                 <div key={k}><span>{specLabel[k]}</span><b className="tnum">{num(e[k]!, 2)} {specUnit[k]}</b></div>
@@ -119,7 +119,7 @@ export default function EquipmentDetail() {
                     ['Рейтинг машиниста', drv ? `${drv.rating.toFixed(1)} из 5` : '—'],
                     ['Связь', 'Через чат платформы — контакты после подтверждения заказа'],
                   ]} />
-                  <div className="alert alert-info"><ShieldCheck /><div>Сделка проходит через СпецХаб: платформа гарантирует выход техники или бесплатную замену в течение 4 часов.</div></div>
+                  <div className="alert alert-info"><ShieldCheck /><div>Сделка проходит через Гиперок: платформа гарантирует выход техники или бесплатную замену в течение 4 часов.</div></div>
                 </div>
               )}
               {tab === 'reviews' && (

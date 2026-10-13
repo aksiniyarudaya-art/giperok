@@ -23,8 +23,8 @@ export default function Support() {
           <div className="card stack-sm">
             <div className="card-head" style={{ marginBottom: 4 }}><h3>Связаться</h3><span className="badge badge-ok">онлайн</span></div>
             <button className="pt-contact" onClick={() => toast('Звонок на линию партнёров: +375 17 388-00-10 (демо)')}><Phone size={16} /><span className="grow">+375 17 388-00-10</span><span className="muted">позвонить</span></button>
-            <button className="pt-contact" onClick={() => toast('Открыт Telegram-бот @spechub_partner (демо)')}><Send size={16} /><span className="grow">@spechub_partner</span><span className="muted">Telegram</span></button>
-            <button className="pt-contact" onClick={() => toast('Письмо: partners@spechub.by')}><Mail size={16} /><span className="grow">partners@spechub.by</span><span className="muted">почта</span></button>
+            <button className="pt-contact" onClick={() => toast('Открыт Telegram-бот @giperok_partner (демо)')}><Send size={16} /><span className="grow">@giperok_partner</span><span className="muted">Telegram</span></button>
+            <button className="pt-contact" onClick={() => toast('Письмо: partners@giperok.by')}><Mail size={16} /><span className="grow">partners@giperok.by</span><span className="muted">почта</span></button>
             <div className="muted row" style={{ gap: 6, fontSize: 12 }}><Clock size={14} />Чат и телефон — круглосуточно</div>
           </div>
           <div className="card">

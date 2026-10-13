@@ -30,7 +30,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <PageHead title="Добрый день, Игорь Михайлович" sub="ООО «ТехноПарк Аренда» · партнёр СпецХаб с 2024 года · рейтинг ★ 4.9"
+      <PageHead title="Добрый день, Игорь Михайлович" sub="ООО «ТехноПарк Аренда» · партнёр Гиперок с 2024 года · рейтинг ★ 4.9"
         actions={<button className="btn btn-primary" onClick={() => nav('/partner/equipment?add=1')}><Plus />Добавить технику</button>} />
 
       <div className="grid g4">

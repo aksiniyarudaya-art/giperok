@@ -126,7 +126,7 @@ export function reviewsFor(eqId: string): Review[] {
 export type Executor = { id: string; kind: 'driver' | 'company'; name: string; sub: string; rating: number; votes: number; orders: number; onTime: number; city: string }
 export const executors: Executor[] = [
   ...drivers.slice(0, 8).map((d, i) => ({ id: d.id, kind: 'driver' as const, name: d.name, sub: d.position, rating: +(4.5 + ((i * 7) % 5) / 10).toFixed(1), votes: 14 + i * 9, orders: 40 + i * 23, onTime: 92 + (i % 4) * 2, city: ['Минск', 'Минск', 'Борисов', 'Минск', 'Молодечно', 'Брест', 'Минск', 'Гродно'][i] })),
-  { id: 'own', kind: 'company', name: 'СпецХаб (собственный парк)', sub: '64 ед. техники · проверенный парк', rating: 4.8, votes: 412, orders: 3810, onTime: 98, city: 'Минск' },
+  { id: 'own', kind: 'company', name: 'Гиперок (собственный парк)', sub: '64 ед. техники · проверенный парк', rating: 4.8, votes: 412, orders: 3810, onTime: 98, city: 'Минск' },
   { id: 'l1', kind: 'company', name: 'ООО «ТехноПарк Аренда»', sub: '12 ед. техники · партнёр с 2024 г.', rating: 4.9, votes: 186, orders: 920, onTime: 97, city: 'Минск' },
   { id: 'l2', kind: 'company', name: 'ЧТУП «КранСервис»', sub: '7 автокранов · партнёр с 2025 г.', rating: 4.7, votes: 94, orders: 410, onTime: 95, city: 'Брест' },
   { id: 'l3', kind: 'company', name: 'ИП Левчук Роман Игоревич', sub: '3 ед. техники · новый партнёр', rating: 4.5, votes: 21, orders: 58, onTime: 91, city: 'Гомель' },
@@ -140,7 +140,7 @@ export const executorReviews: Review[] = [
 
 /* ---------------- Клиент: диалоги и документы ---------------- */
 export const clientThreads: ChatThread[] = [
-  { id: 't1', title: 'Поддержка СпецХаб', sub: 'Отвечаем 24/7 · среднее время ответа 3 мин', unread: 2, msgs: [
+  { id: 't1', title: 'Поддержка Гиперок', sub: 'Отвечаем 24/7 · среднее время ответа 3 мин', unread: 2, msgs: [
     { from: 'Поддержка', text: 'Добрый день, Ирина Олеговна! Заказ К-3123 передан на модерацию, менеджер подтвердит технику до 18:00.', at: '10:12' },
     { from: 'Вы', me: true, text: 'Спасибо. Можно ли перенести начало смены на 07:30?', at: '10:20' },
     { from: 'Поддержка', text: 'Да, согласовали с владельцем техники. Время в заказе обновлено.', at: '10:26' },
@@ -251,7 +251,7 @@ export const partnerRevenue = [
 ]
 
 export const partnerThreads: ChatThread[] = [
-  { id: 'pt1', title: 'Поддержка СпецХаб', sub: 'Для партнёров · 24/7', unread: 1, msgs: [
+  { id: 'pt1', title: 'Поддержка Гиперок', sub: 'Для партнёров · 24/7', unread: 1, msgs: [
     { from: 'Поддержка', text: 'Игорь Михайлович, добрый день! Погрузчик Амкодор 332С4 на модерации — пришлите, пожалуйста, фото техпаспорта.', at: '09:15' },
     { from: 'Вы', me: true, text: 'Добрый день, загрузил в карточку техники.', at: '09:31', file: 'Техпаспорт_332С4.pdf' },
     { from: 'Поддержка', text: 'Спасибо! Проверим в течение 2 часов.', at: '09:33' },
@@ -259,7 +259,7 @@ export const partnerThreads: ChatThread[] = [
   { id: 'pt2', title: 'Бухгалтерия платформы', sub: 'Выплаты и закрывающие документы', unread: 0, msgs: [
     { from: 'Бухгалтерия', text: 'Выплата 6 420 BYN от 05.10 проведена. Акт сверки за сентябрь во вложении.', at: '05.10', file: 'Акт сверки 09.2026.pdf' },
   ] },
-  { id: 'pt3', title: 'Кравченко Ольга · менеджер', sub: 'Курирующий менеджер СпецХаб', unread: 0, msgs: [
+  { id: 'pt3', title: 'Кравченко Ольга · менеджер', sub: 'Курирующий менеджер Гиперок', unread: 0, msgs: [
     { from: 'Кравченко О.', text: 'На следующей неделе будет большой заказ на самосвалы под М1 — держите 2 машины свободными, если получится.', at: 'вчера' },
   ] },
 ]

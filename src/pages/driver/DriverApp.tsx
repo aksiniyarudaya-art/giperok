@@ -56,7 +56,7 @@ function Frame() {
   return (
     <div className="drv-root">
       <aside className="drv-aside">
-        <Link to="/" className="drv-aside-back"><ChevronLeft size={16} />На сайт СпецХаб</Link>
+        <Link to="/" className="drv-aside-back"><ChevronLeft size={16} />На сайт Гиперок</Link>
         <div className="eyebrow">Часть 3 · мобильное приложение</div>
         <h1>Приложение водителя</h1>
         <p className="drv-aside-lead">
@@ -69,7 +69,7 @@ function Frame() {
             <li><b>iPhone (Safari):</b> откройте ссылку → <span className="drv-key"><Share size={14} />Поделиться</span> → <span className="drv-key"><PlusSquare size={14} />На экран «Домой»</span></li>
             <li><b>Android (Chrome):</b> <span className="drv-key"><MoreVertical size={14} />меню</span> → <span className="drv-key"><Download size={14} />Установить приложение</span></li>
           </ol>
-          <p className="muted">Иконка «СпецХаб» появится рядом с другими приложениями и откроется сразу в кабинете водителя, без адресной строки.</p>
+          <p className="muted">Иконка «Гиперок» появится рядом с другими приложениями и откроется сразу в кабинете водителя, без адресной строки.</p>
           {standalone || installed ? (
             <div className="alert alert-ok"><CheckCircle2 />Приложение установлено</div>
           ) : bip ? (

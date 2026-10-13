@@ -25,7 +25,7 @@ export const companies: Company[] = [
   { id: 'l1', kind: 'landlord', type: 'Компания', name: 'ООО «ТехноПарк Аренда»', unp: '192333444', legalAddress: 'г. Минск, ул. Тимирязева, 67', director: 'Шевчук Игорь Михайлович', representative: 'Котова Марина Юрьевна', phone: '+375 29 300-40-50', email: 'rent@technopark.by', site: 'technopark.by', bank: 'BY02 ALFA 3012 0000 0000 9988 · Альфа-Банк', hasContract: true, debt: 0, rating: 4.9 },
   { id: 'l2', kind: 'landlord', type: 'Компания', name: 'ЧТУП «КранСервис»', unp: '291555666', legalAddress: 'г. Брест, ул. Катин Бор, 102', director: 'Новик Алексей Владимирович', representative: 'Новик Алексей Владимирович', phone: '+375 33 640-22-10', email: 'kran@kranservice.by', bank: 'BY45 BAPB 3012 0000 0000 2201 · Белагропромбанк', hasContract: true, debt: 0, rating: 4.7 },
   { id: 'l3', kind: 'landlord', type: 'Физлицо', name: 'ИП Левчук Роман Игоревич', unp: '791000222', legalAddress: 'г. Гомель, ул. Барыкина, 140', director: 'Левчук Роман Игоревич', representative: 'Левчук Роман Игоревич', phone: '+375 44 512-66-09', email: 'levchuk.r@gmail.com', bank: 'BY63 BPSB 3012 0000 0000 6402 · Сбер Банк', hasContract: false, debt: 0, rating: 4.5 },
-  { id: 'own', kind: 'landlord', type: 'Компания', name: 'СпецХаб (собственный парк)', unp: '193000001', legalAddress: 'г. Минск, ул. Олешева, 9', director: 'Администрация', representative: 'Диспетчерская', phone: '+375 17 388-00-00', email: 'park@spechub.by', bank: '—', hasContract: true, debt: 0, rating: 4.8 },
+  { id: 'own', kind: 'landlord', type: 'Компания', name: 'Гиперок (собственный парк)', unp: '193000001', legalAddress: 'г. Минск, ул. Олешева, 9', director: 'Администрация', representative: 'Диспетчерская', phone: '+375 17 388-00-00', email: 'park@giperok.by', bank: '—', hasContract: true, debt: 0, rating: 4.8 },
 ]
 
 /* ---------------- Сотрудники ---------------- */
@@ -34,7 +34,7 @@ const mk = (id: string, name: string, role: Employee['role'], position: string, 
   department: role === 'driver' ? 'Транспортный участок' : role === 'mechanic' ? 'Ремонтная служба' : role === 'hr' ? 'Отдел кадров' : 'Коммерческий отдел',
   supervisorId: role === 'driver' || role === 'mechanic' ? 'e1' : undefined,
   phone: `+375 29 ${Math.floor(100 + rnd() * 899)}-${Math.floor(10 + rnd() * 89)}-${Math.floor(10 + rnd() * 89)}`,
-  email: `${id}@spechub.by`, status: 'Активный', hireStage: 'Допущен',
+  email: `${id}@giperok.by`, status: 'Активный', hireStage: 'Допущен',
   hiredAt: `20${pick(['21', '22', '23', '24', '25'])}-0${1 + Math.floor(rnd() * 9)}-1${Math.floor(rnd() * 9)}`,
   contract: `ТД-${100 + Number(id.replace(/\D/g, ''))}`, rating: +(4 + rnd()).toFixed(1), kpi: Math.round(70 + rnd() * 30),
   salary: role === 'driver' ? 2600 : role === 'mechanic' ? 2400 : role === 'hr' ? 2100 : 3200,

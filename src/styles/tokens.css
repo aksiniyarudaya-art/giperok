@@ -1,84 +1,96 @@
-/* Layout concept: строгий деловой интерфейс — графит и тёплый белый, тонкие линии вместо плашек,
-   приглушённое латунное золото только для главного действия и ключевых акцентов. */
+/* Фирменный стиль «Гиперок»: синий #18223B — главный цвет, глубокий синий #0F1626 — фон для акцентов,
+   оранжевый #F6A11B — сигнальный, его немного; светло-серый #E5E4E4 — воздух. Шрифт Inter / Inter Display.
+   Паттерн «Дороги» из полуокружностей — фактура тёмных блоков. */
 :root {
-  --bg: #f6f5f2;
+  --bg: #f1f0ee;
   --surface: #ffffff;
-  --surface-2: #faf9f7;
-  --surface-3: #efeee9;
-  --line: #e5e3dd;
-  --line-strong: #d3d0c8;
-  --fg: #111315;
-  --fg-2: #464a50;
-  --fg-3: #7b7f86;
-  --ink: #111315;
-  --ink-2: #1c1f23;
-  --ink-fg: #f3f1ec;
-  --ink-fg-2: #9a9da3;
-  --accent: #c9a25e;
-  --accent-strong: #a8823f;
-  --accent-soft: #f4eddf;
-  --accent-fg: #111315;
-  --steel: #3e5a78;
-  --steel-soft: #e8edf2;
-  --ok: #2c7a4f;
-  --ok-soft: #e6f1ea;
-  --warn: #9a6a1c;
-  --warn-soft: #f6eedd;
-  --bad: #b23a30;
-  --bad-soft: #f7e5e2;
-  --info: #3e5a78;
-  --info-soft: #e8edf2;
-  --muted-soft: #efeee9;
+  --surface-2: #f7f7f5;
+  --surface-3: #e9e8e6;
+  --line: #e3e2df;
+  --line-strong: #cfcdc9;
+  --fg: #18223b;
+  --fg-2: #4a536a;
+  --fg-3: #7d8496;
+  --ink: #18223b;
+  --ink-2: #222d4a;
+  --ink-3: #0f1626;
+  --ink-fg: #ffffff;
+  --ink-fg-2: #8b93ad;
+  --accent: #f6a11b;
+  --accent-strong: #e08c06;
+  --accent-soft: #fdf1dc;
+  --accent-fg: #18223b;
+  --steel: #3e5c96;
+  --steel-soft: #e8ecf4;
+  --ok: #2e7d5b;
+  --ok-soft: #e3f0e9;
+  --warn: #b06d05;
+  --warn-soft: #fcf0da;
+  --bad: #c2423a;
+  --bad-soft: #f8e6e4;
+  --info: #3e5c96;
+  --info-soft: #e8ecf4;
+  --muted-soft: #e9e8e6;
 
-  /* студийный фон для изображений техники */
-  --art-bg-1: #f1f0ec;
-  --art-bg-2: #dcdad3;
-  --art-body: #2a2d31;
-  --art-detail: #4a4e54;
-  --art-glass: #9fb0c0;
-  --art-accent: #c9a25e;
-  --art-shadow: rgba(17, 19, 21, .22);
-  --art-wheel: #121416;
+  /* изображения техники: синие силуэты на светло-сером, оранжевый как сигнальный акцент */
+  --art-bg-1: #f4f3f1;
+  --art-bg-2: #dfdedb;
+  --art-body: #18223b;
+  --art-detail: #2f3b5c;
+  --art-glass: #b4bdd0;
+  --art-accent: #f6a11b;
+  --art-shadow: rgba(15, 22, 38, .26);
+  --art-wheel: #0f1626;
 
-  --font-display: "Manrope", "Golos Text", system-ui, sans-serif;
-  --font-body: "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* паттерн «Дороги» */
+  --pattern-navy: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='88' height='44' viewBox='0 0 88 44'><path fill='none' stroke='%23222D48' stroke-width='1.2' d='M-117 -44A29 29 0 0 1 -59 -44A15 15 0 0 0 -29 -44A29 29 0 0 1 29 -44A15 15 0 0 0 59 -44A29 29 0 0 1 117 -44A15 15 0 0 0 147 -44A29 29 0 0 1 205 -44A15 15 0 0 0 235 -44A29 29 0 0 1 293 -44A15 15 0 0 0 323 -44M-103 -44A15 15 0 0 1 -73 -44A29 29 0 0 0 -15 -44A15 15 0 0 1 15 -44A29 29 0 0 0 73 -44A15 15 0 0 1 103 -44A29 29 0 0 0 161 -44A15 15 0 0 1 191 -44A29 29 0 0 0 249 -44A15 15 0 0 1 279 -44A29 29 0 0 0 337 -44M-117 0A29 29 0 0 1 -59 0A15 15 0 0 0 -29 0A29 29 0 0 1 29 0A15 15 0 0 0 59 0A29 29 0 0 1 117 0A15 15 0 0 0 147 0A29 29 0 0 1 205 0A15 15 0 0 0 235 0A29 29 0 0 1 293 0A15 15 0 0 0 323 0M-103 0A15 15 0 0 1 -73 0A29 29 0 0 0 -15 0A15 15 0 0 1 15 0A29 29 0 0 0 73 0A15 15 0 0 1 103 0A29 29 0 0 0 161 0A15 15 0 0 1 191 0A29 29 0 0 0 249 0A15 15 0 0 1 279 0A29 29 0 0 0 337 0M-117 44A29 29 0 0 1 -59 44A15 15 0 0 0 -29 44A29 29 0 0 1 29 44A15 15 0 0 0 59 44A29 29 0 0 1 117 44A15 15 0 0 0 147 44A29 29 0 0 1 205 44A15 15 0 0 0 235 44A29 29 0 0 1 293 44A15 15 0 0 0 323 44M-103 44A15 15 0 0 1 -73 44A29 29 0 0 0 -15 44A15 15 0 0 1 15 44A29 29 0 0 0 73 44A15 15 0 0 1 103 44A29 29 0 0 0 161 44A15 15 0 0 1 191 44A29 29 0 0 0 249 44A15 15 0 0 1 279 44A29 29 0 0 0 337 44M-117 88A29 29 0 0 1 -59 88A15 15 0 0 0 -29 88A29 29 0 0 1 29 88A15 15 0 0 0 59 88A29 29 0 0 1 117 88A15 15 0 0 0 147 88A29 29 0 0 1 205 88A15 15 0 0 0 235 88A29 29 0 0 1 293 88A15 15 0 0 0 323 88M-103 88A15 15 0 0 1 -73 88A29 29 0 0 0 -15 88A15 15 0 0 1 15 88A29 29 0 0 0 73 88A15 15 0 0 1 103 88A29 29 0 0 0 161 88A15 15 0 0 1 191 88A29 29 0 0 0 249 88A15 15 0 0 1 279 88A29 29 0 0 0 337 88'/></svg>");
+  --pattern-deep: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='88' height='44' viewBox='0 0 88 44'><path fill='none' stroke='%23151D31' stroke-width='1.2' d='M-117 -44A29 29 0 0 1 -59 -44A15 15 0 0 0 -29 -44A29 29 0 0 1 29 -44A15 15 0 0 0 59 -44A29 29 0 0 1 117 -44A15 15 0 0 0 147 -44A29 29 0 0 1 205 -44A15 15 0 0 0 235 -44A29 29 0 0 1 293 -44A15 15 0 0 0 323 -44M-103 -44A15 15 0 0 1 -73 -44A29 29 0 0 0 -15 -44A15 15 0 0 1 15 -44A29 29 0 0 0 73 -44A15 15 0 0 1 103 -44A29 29 0 0 0 161 -44A15 15 0 0 1 191 -44A29 29 0 0 0 249 -44A15 15 0 0 1 279 -44A29 29 0 0 0 337 -44M-117 0A29 29 0 0 1 -59 0A15 15 0 0 0 -29 0A29 29 0 0 1 29 0A15 15 0 0 0 59 0A29 29 0 0 1 117 0A15 15 0 0 0 147 0A29 29 0 0 1 205 0A15 15 0 0 0 235 0A29 29 0 0 1 293 0A15 15 0 0 0 323 0M-103 0A15 15 0 0 1 -73 0A29 29 0 0 0 -15 0A15 15 0 0 1 15 0A29 29 0 0 0 73 0A15 15 0 0 1 103 0A29 29 0 0 0 161 0A15 15 0 0 1 191 0A29 29 0 0 0 249 0A15 15 0 0 1 279 0A29 29 0 0 0 337 0M-117 44A29 29 0 0 1 -59 44A15 15 0 0 0 -29 44A29 29 0 0 1 29 44A15 15 0 0 0 59 44A29 29 0 0 1 117 44A15 15 0 0 0 147 44A29 29 0 0 1 205 44A15 15 0 0 0 235 44A29 29 0 0 1 293 44A15 15 0 0 0 323 44M-103 44A15 15 0 0 1 -73 44A29 29 0 0 0 -15 44A15 15 0 0 1 15 44A29 29 0 0 0 73 44A15 15 0 0 1 103 44A29 29 0 0 0 161 44A15 15 0 0 1 191 44A29 29 0 0 0 249 44A15 15 0 0 1 279 44A29 29 0 0 0 337 44M-117 88A29 29 0 0 1 -59 88A15 15 0 0 0 -29 88A29 29 0 0 1 29 88A15 15 0 0 0 59 88A29 29 0 0 1 117 88A15 15 0 0 0 147 88A29 29 0 0 1 205 88A15 15 0 0 0 235 88A29 29 0 0 1 293 88A15 15 0 0 0 323 88M-103 88A15 15 0 0 1 -73 88A29 29 0 0 0 -15 88A15 15 0 0 1 15 88A29 29 0 0 0 73 88A15 15 0 0 1 103 88A29 29 0 0 0 161 88A15 15 0 0 1 191 88A29 29 0 0 0 249 88A15 15 0 0 1 279 88A29 29 0 0 0 337 88'/></svg>");
+  --pattern-light: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='88' height='44' viewBox='0 0 88 44'><path fill='none' stroke='%23D9D7D2' stroke-width='1.4' d='M-117 -44A29 29 0 0 1 -59 -44A15 15 0 0 0 -29 -44A29 29 0 0 1 29 -44A15 15 0 0 0 59 -44A29 29 0 0 1 117 -44A15 15 0 0 0 147 -44A29 29 0 0 1 205 -44A15 15 0 0 0 235 -44A29 29 0 0 1 293 -44A15 15 0 0 0 323 -44M-103 -44A15 15 0 0 1 -73 -44A29 29 0 0 0 -15 -44A15 15 0 0 1 15 -44A29 29 0 0 0 73 -44A15 15 0 0 1 103 -44A29 29 0 0 0 161 -44A15 15 0 0 1 191 -44A29 29 0 0 0 249 -44A15 15 0 0 1 279 -44A29 29 0 0 0 337 -44M-117 0A29 29 0 0 1 -59 0A15 15 0 0 0 -29 0A29 29 0 0 1 29 0A15 15 0 0 0 59 0A29 29 0 0 1 117 0A15 15 0 0 0 147 0A29 29 0 0 1 205 0A15 15 0 0 0 235 0A29 29 0 0 1 293 0A15 15 0 0 0 323 0M-103 0A15 15 0 0 1 -73 0A29 29 0 0 0 -15 0A15 15 0 0 1 15 0A29 29 0 0 0 73 0A15 15 0 0 1 103 0A29 29 0 0 0 161 0A15 15 0 0 1 191 0A29 29 0 0 0 249 0A15 15 0 0 1 279 0A29 29 0 0 0 337 0M-117 44A29 29 0 0 1 -59 44A15 15 0 0 0 -29 44A29 29 0 0 1 29 44A15 15 0 0 0 59 44A29 29 0 0 1 117 44A15 15 0 0 0 147 44A29 29 0 0 1 205 44A15 15 0 0 0 235 44A29 29 0 0 1 293 44A15 15 0 0 0 323 44M-103 44A15 15 0 0 1 -73 44A29 29 0 0 0 -15 44A15 15 0 0 1 15 44A29 29 0 0 0 73 44A15 15 0 0 1 103 44A29 29 0 0 0 161 44A15 15 0 0 1 191 44A29 29 0 0 0 249 44A15 15 0 0 1 279 44A29 29 0 0 0 337 44M-117 88A29 29 0 0 1 -59 88A15 15 0 0 0 -29 88A29 29 0 0 1 29 88A15 15 0 0 0 59 88A29 29 0 0 1 117 88A15 15 0 0 0 147 88A29 29 0 0 1 205 88A15 15 0 0 0 235 88A29 29 0 0 1 293 88A15 15 0 0 0 323 88M-103 88A15 15 0 0 1 -73 88A29 29 0 0 0 -15 88A15 15 0 0 1 15 88A29 29 0 0 0 73 88A15 15 0 0 1 103 88A29 29 0 0 0 161 88A15 15 0 0 1 191 88A29 29 0 0 0 249 88A15 15 0 0 1 279 88A29 29 0 0 0 337 88'/></svg>");
+  --road-orange: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='88' height='64' viewBox='0 0 88 64'><path fill='none' stroke='%23F6A11B' stroke-width='2' d='M-117 32A29 29 0 0 1 -59 32A15 15 0 0 0 -29 32A29 29 0 0 1 29 32A15 15 0 0 0 59 32A29 29 0 0 1 117 32A15 15 0 0 0 147 32A29 29 0 0 1 205 32A15 15 0 0 0 235 32A29 29 0 0 1 293 32A15 15 0 0 0 323 32M-103 32A15 15 0 0 1 -73 32A29 29 0 0 0 -15 32A15 15 0 0 1 15 32A29 29 0 0 0 73 32A15 15 0 0 1 103 32A29 29 0 0 0 161 32A15 15 0 0 1 191 32A29 29 0 0 0 249 32A15 15 0 0 1 279 32A29 29 0 0 0 337 32'/></svg>");
+
+  --pattern-ink: var(--pattern-navy);
+
+  --font-display: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Inter", system-ui, sans-serif;
 
   --r-sm: 6px;
   --r: 8px;
   --r-lg: 12px;
-  --shadow: 0 1px 2px rgba(17, 19, 21, .04), 0 2px 8px rgba(17, 19, 21, .04);
-  --shadow-lg: 0 16px 48px rgba(17, 19, 21, .16);
-  --sidebar-w: 252px;
+  --shadow: 0 1px 2px rgba(15, 22, 38, .04), 0 4px 14px rgba(15, 22, 38, .05);
+  --shadow-lg: 0 20px 56px rgba(15, 22, 38, .18);
+  --sidebar-w: 256px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1113; --surface: #16191c; --surface-2: #1a1d21; --surface-3: #22262b;
-    --line: #262a2f; --line-strong: #353a40;
-    --fg: #eeece7; --fg-2: #b5b8bd; --fg-3: #80848b;
-    --ink: #0a0b0d; --ink-2: #15181b; --ink-fg: #eeece7; --ink-fg-2: #8b8f95;
-    --accent: #d1ad6b; --accent-strong: #dcbb7e; --accent-soft: #2a2519; --accent-fg: #111315;
-    --steel: #8ea9c6; --steel-soft: #1c2530;
-    --ok: #5cb685; --ok-soft: #15291e; --warn: #d6a75a; --warn-soft: #2d2415;
-    --bad: #e2766b; --bad-soft: #321b18; --info: #8ea9c6; --info-soft: #1c2530; --muted-soft: #22262b;
-    --art-bg-1: #22262b; --art-bg-2: #121417; --art-body: #c9ccd1; --art-detail: #8d9198; --art-glass: #4b5866;
-    --art-accent: #d1ad6b; --art-shadow: rgba(0, 0, 0, .55); --art-wheel: #e4e6e9;
+    --bg: #0f1626; --surface: #151e33; --surface-2: #18223b; --surface-3: #1f2a47;
+    --line: #222d48; --line-strong: #2f3b5c;
+    --fg: #f2f2f0; --fg-2: #b4bacb; --fg-3: #7e879e;
+    --ink: #0b111e; --ink-2: #18223b; --ink-3: #070b14; --ink-fg: #f2f2f0; --ink-fg-2: #8b93ad;
+    --accent: #f6a11b; --accent-strong: #ffb547; --accent-soft: #2b2617; --accent-fg: #18223b;
+    --steel: #93a9d8; --steel-soft: #1b2643;
+    --ok: #5fbf8e; --ok-soft: #13291f; --warn: #f2b04c; --warn-soft: #2d2413;
+    --bad: #eb7a70; --bad-soft: #33191a; --info: #93a9d8; --info-soft: #1b2643; --muted-soft: #1f2a47;
+    --art-bg-1: #1e2945; --art-bg-2: #111a2d; --art-body: #e5e4e4; --art-detail: #9aa3b8; --art-glass: #3a4a6e;
+    --art-accent: #f6a11b; --art-shadow: rgba(0, 0, 0, .55); --art-wheel: #f2f2f0;
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.25);
+    --pattern-ink: var(--pattern-deep);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1113; --surface: #16191c; --surface-2: #1a1d21; --surface-3: #22262b;
-  --line: #262a2f; --line-strong: #353a40;
-  --fg: #eeece7; --fg-2: #b5b8bd; --fg-3: #80848b;
-  --ink: #0a0b0d; --ink-2: #15181b; --ink-fg: #eeece7; --ink-fg-2: #8b8f95;
-  --accent: #d1ad6b; --accent-strong: #dcbb7e; --accent-soft: #2a2519; --accent-fg: #111315;
-  --steel: #8ea9c6; --steel-soft: #1c2530;
-  --ok: #5cb685; --ok-soft: #15291e; --warn: #d6a75a; --warn-soft: #2d2415;
-  --bad: #e2766b; --bad-soft: #321b18; --info: #8ea9c6; --info-soft: #1c2530; --muted-soft: #22262b;
-  --art-bg-1: #22262b; --art-bg-2: #121417; --art-body: #c9ccd1; --art-detail: #8d9198; --art-glass: #4b5866;
-  --art-accent: #d1ad6b; --art-shadow: rgba(0, 0, 0, .55); --art-wheel: #e4e6e9;
+  --bg: #0f1626; --surface: #151e33; --surface-2: #18223b; --surface-3: #1f2a47;
+  --line: #222d48; --line-strong: #2f3b5c;
+  --fg: #f2f2f0; --fg-2: #b4bacb; --fg-3: #7e879e;
+  --ink: #0b111e; --ink-2: #18223b; --ink-3: #070b14; --ink-fg: #f2f2f0; --ink-fg-2: #8b93ad;
+  --accent: #f6a11b; --accent-strong: #ffb547; --accent-soft: #2b2617; --accent-fg: #18223b;
+  --steel: #93a9d8; --steel-soft: #1b2643;
+  --ok: #5fbf8e; --ok-soft: #13291f; --warn: #f2b04c; --warn-soft: #2d2413;
+  --bad: #eb7a70; --bad-soft: #33191a; --info: #93a9d8; --info-soft: #1b2643; --muted-soft: #1f2a47;
+  --art-bg-1: #1e2945; --art-bg-2: #111a2d; --art-body: #e5e4e4; --art-detail: #9aa3b8; --art-glass: #3a4a6e;
+  --art-accent: #f6a11b; --art-shadow: rgba(0, 0, 0, .55); --art-wheel: #f2f2f0;
   --shadow: 0 1px 2px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.25);
-  color-scheme: dark;
+  --pattern-ink: var(--pattern-deep);
+    color-scheme: dark;
 }

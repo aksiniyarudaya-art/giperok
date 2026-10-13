@@ -8,7 +8,7 @@ export function Screenshot({ kind, step = 0 }: { kind: Lesson['shot']; step?: nu
   const hi = (i: number) => (i === step ? 'hi' : '')
   return (
     <div className="pt-shot" aria-hidden>
-      <div className="pt-shot-bar"><i /><i /><i /><span>spechub.by/partner</span></div>
+      <div className="pt-shot-bar"><i /><i /><i /><span>giperok.by/partner</span></div>
       <div className="pt-shot-body">
         <div className="pt-shot-side">{[0, 1, 2, 3, 4, 5].map((i) => <span key={i} className={i === { dashboard: 0, catalog: 1, form: 1, orders: 2, payout: 4, chat: 5 }[kind] ? 'on' : ''} />)}</div>
         <div className="pt-shot-main">

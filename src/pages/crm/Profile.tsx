@@ -15,7 +15,7 @@ export default function Profile({ role }: CrmPageProps) {
   const toast = useToast()
   const me = emp(userByRole[role])!
   const [status, setStatus] = useState<WorkStatus>('Работает')
-  const [contacts, setContacts] = useState({ phone: me.phone, email: me.email, tg: `@${me.email.split('@')[0]}_spechub`, extra: '' })
+  const [contacts, setContacts] = useState({ phone: me.phone, email: me.email, tg: `@${me.email.split('@')[0]}_giperok`, extra: '' })
   const [edit, setEdit] = useState(false)
   const [draft, setDraft] = useState(contacts)
   const [tab, setTab] = useState<'sites' | 'staff' | 'eq' | 'clients'>('sites')

@@ -59,7 +59,7 @@ export default function MyEquipment() {
             {(Object.keys(categoryLabels) as EquipmentCategory[]).map((k) => <option key={k} value={k}>{categoryLabels[k]}</option>)}
           </select>
         </div>
-        {tab === 'На модерации' && count('На модерации') > 0 && <div className="alert alert-warn"><ShieldAlert /><div>Менеджер СпецХаб проверяет документы и фото. Обычно до 2 часов в рабочее время — уведомление придёт в чат.</div></div>}
+        {tab === 'На модерации' && count('На модерации') > 0 && <div className="alert alert-warn"><ShieldAlert /><div>Менеджер Гиперок проверяет документы и фото. Обычно до 2 часов в рабочее время — уведомление придёт в чат.</div></div>}
         <DataTable cols={cols} rows={rows} rowKey={(e) => e.id} onRow={(e) => setOpenId(e.id)} empty="В этой вкладке техники нет" />
       </div>
 
