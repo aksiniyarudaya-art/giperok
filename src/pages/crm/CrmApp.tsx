@@ -140,7 +140,7 @@ export default function CrmApp() {
         <Route path="briefings" element={<Briefings {...p} />} />
         <Route path="hiring" element={<Hiring {...p} />} />
         <Route path="kpi" element={<HrKpi {...p} />} />
-        <Route path="*" element={<Navigate to="dashboard" replace />} />
+        <Route path="*" element={<Navigate to={`/crm/${role}/dashboard`} replace />} />
       </Route>
     </Routes>
   )

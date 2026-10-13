@@ -1,3 +1,4 @@
+import './shell.css'
 import { Link } from 'react-router-dom'
 
 export function Logo({ inverted, to = '/' }: { inverted?: boolean; to?: string }) {

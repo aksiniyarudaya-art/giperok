@@ -1,0 +1,141 @@
+/* CRM, разделы 1–8 (профиль, дашборд, сотрудники, арендаторы, арендодатели, колл-центр, техника, заправка) */
+
+.ca-stats { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ca-stats.c5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ca-stats.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .ca-stats, .ca-stats.c5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 680px) {
+  .ca-stats, .ca-stats.c5, .ca-stats.c3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .ca-stats .stat { padding: 12px 14px; }
+  .ca-stats .stat .v { font-size: 21px; }
+}
+
+.ca-main { display: grid; gap: 16px; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
+@media (max-width: 1100px) { .ca-main { grid-template-columns: minmax(0, 1fr); } }
+
+.ca-sec { font: 600 13px/1.2 var(--font-body); text-transform: uppercase; letter-spacing: .07em; color: var(--fg-3); margin: 4px 0 -4px; }
+
+/* Сегментированные показатели в одной карточке */
+.ca-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: 8px; }
+.ca-split > div { background: var(--surface-2); border-radius: var(--r); padding: 10px 12px; min-width: 0; }
+.ca-split .n { font: 600 22px/1.1 var(--font-display); font-variant-numeric: tabular-nums; }
+.ca-split .l { font-size: 12px; color: var(--fg-3); margin-top: 4px; display: flex; align-items: center; gap: 6px; }
+.ca-split .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.ca-split button { all: unset; cursor: pointer; display: block; }
+
+/* Список-строки */
+.ca-list { display: flex; flex-direction: column; }
+.ca-li { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.ca-li:last-child { border-bottom: 0; }
+.ca-li .grow { overflow: hidden; }
+.ca-li .t { font-weight: 600; font-size: 14px; }
+.ca-li .s { font-size: 12px; color: var(--fg-3); }
+.ca-li.click { cursor: pointer; }
+.ca-li.click:hover .t { color: var(--steel); }
+
+/* Уведомления */
+.ca-notice { display: flex; gap: 10px; padding: 10px 12px; border-radius: var(--r); border-left: 3px solid var(--line-strong); background: var(--surface-2); cursor: pointer; }
+.ca-notice.bad { border-left-color: var(--bad); background: var(--bad-soft); }
+.ca-notice.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+.ca-notice.info { border-left-color: var(--info); }
+.ca-notice svg { width: 18px; height: 18px; flex: none; margin-top: 1px; }
+.ca-notice.bad svg { color: var(--bad); }
+.ca-notice.warn svg { color: var(--warn); }
+.ca-notice.info svg { color: var(--info); }
+.ca-notice .t { font-weight: 600; font-size: 14px; color: var(--fg); }
+.ca-notice .s { font-size: 13px; color: var(--fg-2); }
+
+/* Календарь */
+.ca-cal { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.ca-cal .wd { font-size: 11px; color: var(--fg-3); text-align: center; text-transform: uppercase; letter-spacing: .05em; padding: 2px 0 6px; }
+.ca-day { min-height: 74px; border: 1px solid var(--line); border-radius: 8px; padding: 6px; background: var(--surface); text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 3px; min-width: 0; font: inherit; color: inherit; }
+.ca-day:hover { border-color: var(--line-strong); }
+.ca-day.empty { visibility: hidden; }
+.ca-day.we .d { color: var(--fg-3); }
+.ca-day.today { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.ca-day.sel { background: var(--accent-soft); }
+.ca-day .d { font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ca-ev { font-size: 11px; line-height: 1.25; padding: 1px 5px; border-radius: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ca-ev.k-Аренда { background: var(--accent-soft); color: var(--warn); }
+.ca-ev.k-ТО { background: var(--warn-soft); color: var(--warn); }
+.ca-ev.k-Оплата { background: var(--ok-soft); color: var(--ok); }
+.ca-ev.k-Документы { background: var(--info-soft); color: var(--info); }
+.ca-ev.k-Встреча { background: var(--steel-soft); color: var(--steel); }
+.ca-ev.k-Праздник { background: var(--bad-soft); color: var(--bad); }
+.ca-dots { display: none; gap: 3px; flex-wrap: wrap; }
+.ca-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-strong); }
+@media (max-width: 680px) {
+  .ca-day { min-height: 44px; padding: 4px; align-items: center; }
+  .ca-day .ca-ev { display: none; }
+  .ca-dots { display: flex; }
+}
+
+/* Профиль */
+.ca-profile { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.ca-photo { width: 96px; height: 96px; border-radius: 20px; display: grid; place-items: center; font: 700 30px var(--font-display); background: var(--accent-soft); color: var(--warn); flex: none; position: relative; }
+.ca-photo button { position: absolute; right: -6px; bottom: -6px; }
+.ca-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.ca-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: var(--surface-3); font-size: 13px; color: var(--fg-2); }
+
+/* Pipeline (Найти → Проверка → Оформлен → В работе) */
+.ca-pipe { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+.ca-pipe span { font-size: 11px; font-weight: 600; text-align: center; padding: 5px 2px; border-radius: 6px; background: var(--surface-3); color: var(--fg-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ca-pipe span.on { background: var(--accent); color: var(--accent-fg); }
+.ca-pipe span.done { background: var(--ok-soft); color: var(--ok); }
+
+/* Предупреждение о критическом долге */
+.ca-crit { border: 1px solid var(--bad); background: var(--bad-soft); color: var(--bad); border-radius: var(--r); padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start; }
+.ca-crit svg { width: 22px; height: 22px; flex: none; }
+.ca-crit b { color: var(--bad); }
+.ca-crit .s { color: var(--fg-2); font-size: 13px; }
+.ca-row-bad td:first-child { box-shadow: inset 3px 0 0 var(--bad); }
+.ca-flag { display: inline-flex; align-items: center; gap: 4px; color: var(--bad); font-weight: 700; font-size: 12px; }
+.ca-flag svg { width: 14px; height: 14px; }
+
+/* Вкладки-разделы внутри карточки */
+.ca-head-card { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+
+/* Входящий звонок */
+.ca-call { position: fixed; right: 20px; bottom: 20px; z-index: 150; width: min(380px, calc(100% - 32px)); background: var(--ink); color: var(--ink-fg); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 18px; animation: ca-pop .25s ease; }
+.ca-call .muted { color: var(--ink-fg-2); }
+.ca-call .ring { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--ok); color: var(--ink); animation: ca-ring 1.2s infinite; flex: none; }
+.ca-call .ring svg { width: 22px; height: 22px; }
+.ca-call .tag { margin-top: 10px; padding: 8px 10px; border-radius: var(--r); font-weight: 600; font-size: 14px; }
+.ca-call .tag.bad { background: var(--bad); color: var(--surface); }
+.ca-call .tag.ok { background: var(--ok); color: var(--surface); }
+@media (max-width: 680px) { .ca-call { right: 16px; left: 16px; bottom: 16px; width: auto; } }
+@keyframes ca-pop { from { transform: translateY(20px); opacity: 0; } }
+@keyframes ca-ring { 0%, 100% { box-shadow: 0 0 0 0 var(--ok-soft); } 50% { box-shadow: 0 0 0 10px transparent; } }
+
+/* Запись звонка */
+.ca-audio { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r); min-width: 0; }
+.ca-audio .wave { flex: 1; height: 24px; display: flex; align-items: center; gap: 2px; min-width: 0; overflow: hidden; }
+.ca-audio .wave i { flex: 1 0 2px; max-width: 3px; background: var(--line-strong); border-radius: 2px; }
+.ca-audio .wave i.p { background: var(--accent-strong); }
+
+/* Фото-документ (заглушка) */
+.ca-doc { aspect-ratio: 3 / 4; border-radius: var(--r); border: 1px dashed var(--line-strong); background: var(--surface-2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--fg-3); font-size: 12px; text-align: center; padding: 8px; }
+.ca-doc svg { width: 26px; height: 26px; }
+.ca-doc.has { border-style: solid; background: repeating-linear-gradient(0deg, var(--surface) 0 9px, var(--surface-3) 9px 10px); color: var(--fg-2); }
+
+/* Сверка топлива */
+.ca-meter { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 13px; }
+.ca-cmp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ca-cmp > div { background: var(--surface-2); border-radius: var(--r); padding: 10px; }
+.ca-cmp .n { font: 600 18px var(--font-display); font-variant-numeric: tabular-nums; }
+.ca-cmp .l { font-size: 12px; color: var(--fg-3); }
+.ca-cmp .bad { color: var(--bad); }
+
+.ca-eq-thumb { width: 56px; flex: none; }
+.ca-eq-thumb .eq-img { border-radius: 8px; }
+.ca-filters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 1100px) { .ca-filters { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .ca-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ca-filters .select, .ca-filters .input { height: 38px; font-size: 13px; }
+
+.ca-admin { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 12px; border-radius: var(--r); background: var(--surface-2); border: 1px dashed var(--line-strong); align-items: center; }
+.ca-admin .eyebrow { margin-right: auto; }
+.ca-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ca-tight td { padding: 9px 12px; }
+.ca-right { margin-left: auto; }
+@media (max-width: 680px) { .ca-hide-sm { display: none !important; } .modal-foot .btn { flex: 1 1 auto; } }
