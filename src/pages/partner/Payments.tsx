@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { AlertTriangle, ArrowDownToLine, BellRing, Download, FileText, Paperclip, Upload, Wallet } from 'lucide-react'
-import { DataTable, Drawer, Field, KV, Modal, PageHead, Progress, SearchInput, Seg, Stat, StatusBadge, Tabs, date, money, useToast, type Col } from '../../ui'
+import { DataTable, Drawer, Field, KV, Modal, PageHead, Progress, SearchInput, Seg, Stat, StatusBadge, Tabs, date, money, useToast, type Col, EqThumb } from '../../ui'
 import type { Deal, Payout } from '../../data/cabinet'
 import { payoutBalance, usePartner } from './ctx'
 
@@ -36,7 +36,7 @@ export default function Payments() {
     { key: 'n', title: 'Сделка', render: (d) => <b className="mono">{d.number}</b>, nowrap: true },
     { key: 'd', title: 'Дата', render: (d) => <span className="tnum">{date(d.date)}</span>, nowrap: true, hideMobile: true },
     { key: 'c', title: 'Клиент', render: (d) => d.client },
-    { key: 'e', title: 'Техника', render: (d) => <span className="dim">{eqTitle(d.equipmentId)}</span>, hideMobile: true },
+    { key: 'e', title: 'Техника', render: (d) => <EqThumb eq={p.equipment.find((e) => e.id === d.equipmentId)}><span className="dim">{eqTitle(d.equipmentId)}</span></EqThumb>, hideMobile: true },
     { key: 'a', title: 'Сумма', render: (d) => <span className="tnum">{money(d.amount)}</span>, align: 'r', nowrap: true },
     { key: 'f', title: 'Комиссия', render: (d) => <span className="tnum muted">−{money(d.fee)}</span>, align: 'r', nowrap: true, hideMobile: true },
     { key: 'p', title: 'Оплачено', render: (d) => <span className="tnum">{money(d.paid)}</span>, align: 'r', nowrap: true, hideMobile: true },

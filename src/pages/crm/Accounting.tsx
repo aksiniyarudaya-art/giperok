@@ -5,8 +5,7 @@ import {
 } from 'lucide-react'
 import {
   Badge, BarChart, DataTable, Donut, Drawer, Field, KV, Modal, PageHead, Progress, SearchInput, Seg, Stat, StatusBadge, Tabs,
-  date, dateShort, money, num, uid, useList, useToast, type Col,
-} from '../../ui'
+  date, dateShort, money, num, uid, useList, useToast, type Col, EqThumb } from '../../ui'
 import { categoryOne } from '../../data/types'
 import { companies, company, emp, eq, site, TODAY } from '../../data/mock'
 import {
@@ -77,7 +76,7 @@ function IncomeTab({ rows, onOpen }: { rows: Deal[]; onOpen: (id: string) => voi
   const cols: Col<Deal>[] = [
     { key: 'n', title: 'Сделка', nowrap: true, render: (d) => <div><div className="mono cb-cell-main">{d.number}</div><div className="cb-cell-sub">{dateShort(d.date)}</div></div> },
     { key: 'c', title: 'Клиент / объект', render: (d) => <div><div className="cb-cell-main">{company(d.clientId)?.name}</div><div className="cb-cell-sub">{site(d.siteId)?.name}</div></div> },
-    { key: 'e', title: 'Техника', hideMobile: true, render: (d) => <div><div>{eq(d.equipmentId)?.title}</div><Badge tone={d.own ? 'info' : 'accent'}>{d.own ? 'своя' : 'привлечённая'}</Badge></div> },
+    { key: 'e', title: 'Техника', hideMobile: true, render: (d) => <EqThumb eq={eq(d.equipmentId)}><div>{eq(d.equipmentId)?.title}</div><Badge tone={d.own ? 'info' : 'accent'}>{d.own ? 'своя' : 'привлечённая'}</Badge></EqThumb> },
     { key: 'h', title: 'План / факт, ч', nowrap: true, hideMobile: true, render: (d) => <span className="tnum">{d.planHours} / <b className={d.factHours > d.planHours ? 'cb-pos' : d.factHours < d.planHours ? 'cb-neg' : ''}>{d.factHours}</b></span> },
     { key: 'i', title: 'Доход', align: 'r', nowrap: true, render: (d) => <b className="tnum">{money(dealIncome(d))}</b> },
     { key: 'p', title: 'Оплата', render: (d) => <StatusBadge status={d.pay} /> },

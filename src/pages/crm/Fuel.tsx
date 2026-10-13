@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AlertTriangle, Ban, Camera, Check, CreditCard, Flag, Fuel as FuelIcon, Gauge, Plus, Search, X } from 'lucide-react'
 import type { CrmPageProps, CrmRole } from './types'
-import { DataTable, Drawer, Field, KV, Modal, PageHead, SearchInput, Stat, StatusBadge, Tabs, Badge, dateShort, money, num, time, uid, useList, useToast, type Col } from '../../ui'
+import { DataTable, Drawer, Field, KV, Modal, PageHead, SearchInput, Stat, StatusBadge, Tabs, Badge, dateShort, money, num, time, uid, useList, useToast, type Col, EqThumb } from '../../ui'
 import { drivers, emp, eq, equipment, site, sites } from '../../data/mock'
 import { categoryOne } from '../../data/types'
 import { FUEL_PRICE, fuelNorm, fuelReqs, fuelStage, type FuelReq, type FuelStage, type FuelStatus } from '../../data/crm-a'
@@ -43,7 +43,7 @@ export default function FuelPage({ role }: CrmPageProps) {
 
   const cols: Col<FuelReq>[] = [
     { key: 'd', title: 'Дата', nowrap: true, render: (f) => <div><b className="tnum">{dateShort(f.date)}</b><div className="muted tnum" style={{ fontSize: 12 }}>{time(f.date)}</div></div> },
-    { key: 'e', title: 'Техника', render: (f) => { const e = eq(f.eqId); return <div><b>{e?.title}</b><div className="muted mono" style={{ fontSize: 12 }}>{e?.plate}</div></div> } },
+    { key: 'e', title: 'Техника', render: (f) => { const e = eq(f.eqId); return <EqThumb eq={e}><b>{e?.title}</b><div className="muted mono" style={{ fontSize: 12 }}>{e?.plate}</div></EqThumb> } },
     { key: 'dr', title: 'Водитель', hideMobile: true, render: (f) => short(emp(f.driverId)?.name) },
     { key: 'l', title: 'Литры', align: 'r', render: (f) => <span className="tnum">{f.liters} л</span> },
     { key: 'c', title: 'Стоимость', align: 'r', hideMobile: true, render: (f) => <span className="tnum">{money(f.liters * f.price)}</span> },

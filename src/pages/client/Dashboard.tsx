@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { AlertTriangle, ArrowRight, CalendarClock, ClipboardList, CreditCard, Heart, LayoutGrid, Map as MapIcon, MessagesSquare, Repeat2, Route as RouteIcon, Scale } from 'lucide-react'
-import { BarChart, EquipmentArt, PageHead, Stat, StatusBadge, dateShort, money, plural } from '../../ui'
+import { BarChart, EquipmentArt, PageHead, Stat, StatusBadge, dateShort, money, plural, brandPhoto } from '../../ui'
 import { categoryLabels, type EquipmentCategory } from '../../data/types'
 import { availableDate, clientPayments, clientSite, clientThreads } from '../../data/cabinet'
 import { useClient } from './ctx'
@@ -22,7 +22,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <PageHead title="Добрый день, Ирина" sub="ООО «СтройМонолит» · договор №ДА-2026/118 · персональный менеджер Бондарь М."
+      <PageHead photo={brandPhoto('hero')} title="Добрый день, Ирина" sub="ООО «СтройМонолит» · договор №ДА-2026/118 · персональный менеджер Бондарь М."
         actions={<>
           <Link to="/client/map" className="btn btn-secondary"><MapIcon />Карта</Link>
           <Link to="/client/catalog" className="btn btn-primary"><LayoutGrid />Найти технику</Link>

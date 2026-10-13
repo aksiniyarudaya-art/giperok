@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { AlertOctagon, AlertTriangle, ArrowRight, Bell, CalendarDays, Fuel, Handshake, Info, Plus, Truck, Users, Wallet, Wrench } from 'lucide-react'
 import type { CrmPageProps } from './types'
 import { isAdmin } from './types'
-import { Avatar, BarChart, Donut, Field, Modal, PageHead, Progress, Stat, StatusBadge, dateShort, money, time, useToast } from '../../ui'
+import { Avatar, BarChart, Donut, Field, Modal, PageHead, Progress, Stat, StatusBadge, dateShort, money, time, useToast, equipmentPhoto } from '../../ui'
 import { company, drivers, emp, eq, equipment, managers, orders, site } from '../../data/mock'
 import { calendar, crmEqStatus, expenseItems, finMonths, fuelReqs, notices, toRequests, userByRole, type CalEvent } from '../../data/crm-a'
 import './crm-a.css'
@@ -43,7 +43,7 @@ export default function Dashboard({ role }: CrmPageProps) {
 
   return (
     <div className="stack">
-      <PageHead title="Дашборд" sub={`Вторник, 13 октября 2026 · ${me.name.split(' ').slice(0, 2).join(' ')}`}
+      <PageHead photo={equipmentPhoto('crane', 'crm')} title="Дашборд" sub={`Вторник, 13 октября 2026 · ${me.name.split(' ').slice(0, 2).join(' ')}`}
         actions={<><button className="btn btn-secondary" onClick={() => go('callcenter')}><Plus />Новая заявка</button><button className="btn btn-primary" onClick={() => go('equipment')}><Truck />Назначить технику</button></>} />
 
       <div className="ca-stats">
@@ -62,7 +62,7 @@ export default function Dashboard({ role }: CrmPageProps) {
                 const c = company(o.clientId)
                 return (
                   <div key={o.id} className="ca-li click" onClick={() => go('tenants')}>
-                    <span className="mono muted hide-mobile" style={{ fontSize: 12, width: 60 }}>{o.number}</span>
+                    <img className="eq-thumb" src={equipmentPhoto(eq(o.equipmentId)?.category ?? 'excavator', o.equipmentId)} alt="" />
                     <div className="grow"><div className="t">{eq(o.equipmentId)?.title} → {site(o.siteId)?.name}</div><div className="s">{c?.name} · {emp(o.driverId)?.name.split(' ').slice(0, 2).join(' ')} · {dateShort(o.date)}, {o.start}</div></div>
                     {c?.critical && <span className="ca-flag hide-mobile"><AlertTriangle />долг</span>}
                     <span className="tnum" style={{ fontWeight: 600 }}>{money(o.cost)}</span>

@@ -1,6 +1,7 @@
+import type React from 'react'
 import type { EquipmentCategory } from '../data/types'
 
-/* Фото техники в фирменной обработке: синий тон, жёлтая и оранжевая техника остаётся в цвете (как в презентации). */
+/* Фото техники в единой фирменной обработке: все снимки в одном синем тоне, без цветных пятен. */
 const files = import.meta.glob('../assets/eq/*.jpg', { eager: true, query: '?url', import: 'default' }) as Record<string, string>
 const byCategory: Partial<Record<EquipmentCategory, string[]>> = {}
 for (const [path, url] of Object.entries(files)) {
@@ -28,5 +29,15 @@ export function EquipmentArt({ category, label, seed }: { category: EquipmentCat
     <div className="eq-img" role="img" aria-label={label ?? 'Фото техники'}>
       <img src={src} alt="" decoding="async" />
     </div>
+  )
+}
+
+/* Миниатюра для таблиц и списков: фото + название в одну строку. */
+export function EqThumb({ eq, children }: { eq?: { id: string; category: EquipmentCategory }; children: React.ReactNode }) {
+  return (
+    <span className="eq-thumb-cell">
+      {eq && <img className="eq-thumb" src={equipmentPhoto(eq.category, eq.id)} alt="" decoding="async" />}
+      <span className="eq-thumb-t">{children}</span>
+    </span>
   )
 }

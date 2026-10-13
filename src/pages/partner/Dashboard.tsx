@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight, CalendarClock, Gauge, Plus, Truck, Wallet } from 'lucide-react'
-import { Avatar, DataTable, Donut, EquipmentArt, LineChart, PageHead, Progress, Sparkline, Stat, StatusBadge, dateShort, money, plural, type Col } from '../../ui'
+import { Avatar, DataTable, Donut, EquipmentArt, LineChart, PageHead, Progress, Sparkline, Stat, StatusBadge, dateShort, money, plural, type Col, brandPhoto, EqThumb } from '../../ui'
 import { partnerDrivers, partnerRevenue, type PartnerDriver } from '../../data/cabinet'
 import { payoutBalance, usePartner } from './ctx'
 import { inService, loadOf, revenueOf, trendOf } from './util'
@@ -21,7 +21,7 @@ export default function Dashboard() {
 
   const dcols: Col<PartnerDriver>[] = [
     { key: 'n', title: 'Водитель', render: (d) => <div className="row" style={{ gap: 10, flexWrap: 'nowrap' }}><Avatar name={d.name} size="sm" /><div><div style={{ fontWeight: 600 }}>{d.name}</div><div className="muted" style={{ fontSize: 12 }}>{d.phone}</div></div></div> },
-    { key: 'e', title: 'Техника', render: (d) => eqs.find((e) => e.id === d.equipmentId)?.title ?? '—', hideMobile: true },
+    { key: 'e', title: 'Техника', render: (d) => { const e = eqs.find((x) => x.id === d.equipmentId); return <EqThumb eq={e}>{e?.title ?? '—'}</EqThumb> }, hideMobile: true },
     { key: 'o', title: 'Заказы', render: (d) => <span className="tnum">{d.orders}</span>, align: 'r' },
     { key: 'r', title: 'Рейтинг', render: (d) => <b className="tnum">★ {d.rating.toFixed(1)}</b>, align: 'r', nowrap: true },
     { key: 'a', title: 'Адрес сейчас', render: (d) => <span className="dim" style={{ fontSize: 13 }}>{d.address}</span>, hideMobile: true },
@@ -30,7 +30,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <PageHead title="Добрый день, Игорь Михайлович" sub="ООО «ТехноПарк Аренда» · партнёр Гиперок с 2024 года · рейтинг ★ 4.9"
+      <PageHead photo={brandPhoto('owners')} title="Добрый день, Игорь Михайлович" sub="ООО «ТехноПарк Аренда» · партнёр Гиперок с 2024 года · рейтинг ★ 4.9"
         actions={<button className="btn btn-primary" onClick={() => nav('/partner/equipment?add=1')}><Plus />Добавить технику</button>} />
 
       <div className="grid g4">

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { CalendarOff, Check, ClipboardCheck, FileWarning, Gauge, ShieldOff, Timer, UserPlus } from 'lucide-react'
 import type { CrmPageProps } from '../types'
-import { Avatar, Badge, PageHead, Progress, Stat, date, daysBetween, useToast } from '../../../ui'
+import { Avatar, Badge, PageHead, Progress, Stat, date, daysBetween, useToast, equipmentPhoto } from '../../../ui'
 import { TODAY, emp, employees } from '../../../data/mock'
 import {
   absencesStore, calcKpi, hireStages, hireStore, kpiStore, personDocsStore, repairHoursStore, useStore, useStoreList,
@@ -31,7 +31,7 @@ export default function HrDashboard({ role }: CrmPageProps) {
 
   return (
     <>
-      <PageHead title="Дашборд кадровика" sub={`${shortName(me.name)} · ${me.position} · вторник, 13 октября 2026`}
+      <PageHead photo={equipmentPhoto('loader', 'hr')} title="Дашборд кадровика" sub={`${shortName(me.name)} · ${me.position} · вторник, 13 октября 2026`}
         actions={<><button className="btn btn-secondary" onClick={() => go('kpi')}><Gauge />KPI и отчёты</button><button className="btn btn-primary" onClick={() => go('hiring')}><UserPlus />Приём и увольнение</button></>} />
 
       <div className="cx-stats">

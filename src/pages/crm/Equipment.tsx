@@ -4,8 +4,7 @@ import type { CrmPageProps, CrmRole } from './types'
 import { isAdmin } from './types'
 import {
   DataTable, Drawer, EquipmentArt, Field, KV, Modal, PageHead, Progress, SearchInput, Seg, Stat, StatusBadge, Tabs,
-  date, dateShort, money, num, time, uid, useList, useToast, type Col,
-} from '../../ui'
+  date, dateShort, money, num, time, uid, useList, useToast, type Col, EqThumb } from '../../ui'
 import { companies, company, drivers, emp, equipment, site, sites } from '../../data/mock'
 import { categoryLabels, categoryOne, type Equipment, type EquipmentCategory } from '../../data/types'
 import { crmEqStatus, eqFinance, eqNotes, repairs, toRequests, type ToDecision, type ToRequest } from '../../data/crm-a'
@@ -193,7 +192,7 @@ export default function EquipmentPage({ role }: CrmPageProps) {
   const toRows = tos.rows.filter((t) => t.stage === toTab)
   const toCols: Col<ToRequest>[] = [
     { key: 'd', title: 'Дата', nowrap: true, render: (t) => <span className="tnum">{dateShort(t.created)}, {time(t.created)}</span> },
-    { key: 'e', title: 'Техника', render: (t) => { const e = list.rows.find((x) => x.id === t.eqId); return <div><b>{e?.title}</b><div className="muted mono" style={{ fontSize: 12 }}>{e?.plate}</div></div> } },
+    { key: 'e', title: 'Техника', render: (t) => { const e = list.rows.find((x) => x.id === t.eqId); return <EqThumb eq={e}><b>{e?.title}</b><div className="muted mono" style={{ fontSize: 12 }}>{e?.plate}</div></EqThumb> } },
     { key: 'p', title: 'Проблема', hideMobile: true, render: (t) => <span style={{ fontSize: 13 }}>{t.problem}</span> },
     { key: 'u', title: 'Срочность', render: (t) => <span className={`badge ${t.urgency === 'Аварийно' ? 'badge-bad' : t.urgency === 'Срочно' ? 'badge-warn' : 'badge-info'}`}>{t.urgency}</span> },
     { key: 'm', title: 'Механик', hideMobile: true, render: (t) => emp(t.mechanicId)?.name.split(' ').slice(0, 2).join(' ') },

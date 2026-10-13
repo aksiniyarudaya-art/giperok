@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { BellRing, Check, CheckCheck, Download, FileText, Send, X } from 'lucide-react'
-import { DataTable, Drawer, EquipmentArt, Field, KV, Modal, PageHead, SearchInput, Stat, StatusBadge, Tabs, date, money, useToast, type Col } from '../../ui'
+import { DataTable, Drawer, EquipmentArt, Field, KV, Modal, PageHead, SearchInput, Stat, StatusBadge, Tabs, date, money, useToast, type Col, EqThumb } from '../../ui'
 import { partnerDriver, partnerDrivers, type PartnerOrder, type PartnerOrderStatus } from '../../data/cabinet'
 import { usePartner } from './ctx'
 
@@ -33,7 +33,7 @@ export default function Orders() {
   const cols: Col<PartnerOrder>[] = [
     { key: 'n', title: '№', render: (o) => <b className="mono">{o.number}</b>, nowrap: true },
     { key: 'd', title: 'Дата', render: (o) => <span className="tnum">{date(o.date)}<span className="muted"> · {o.start}</span></span>, nowrap: true },
-    { key: 'e', title: 'Техника', render: (o) => <span style={{ fontWeight: 500 }}>{eqOf(o.equipmentId)?.title}</span> },
+    { key: 'e', title: 'Техника', render: (o) => <EqThumb eq={eqOf(o.equipmentId)}><span style={{ fontWeight: 500 }}>{eqOf(o.equipmentId)?.title}</span></EqThumb> },
     { key: 'c', title: 'Клиент', render: (o) => o.client, hideMobile: true },
     { key: 's', title: 'Объект', render: (o) => <span className="dim">{o.site}</span>, hideMobile: true },
     { key: 'h', title: 'Часы', render: (o) => <span className="tnum">{o.hours}</span>, align: 'r', hideMobile: true },

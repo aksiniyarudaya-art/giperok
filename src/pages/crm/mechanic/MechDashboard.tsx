@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, CalendarClock, Check, FileText, Inbox, ShieldCheck, Timer, Wrench, X } from 'lucide-react'
 import type { CrmPageProps } from '../types'
-import { Avatar, Badge, PageHead, Stat, money, time, useToast } from '../../../ui'
+import { Avatar, Badge, PageHead, Stat, money, time, useToast, equipmentPhoto } from '../../../ui'
 import { TODAY, emp } from '../../../data/mock'
 import {
   NOW, briefingsStore, docTotal, docsStore, fleetStore, repairHoursStore, repairsStore, requestsStore, hoursBetween, useStore, useStoreList,
@@ -39,7 +39,7 @@ export default function MechDashboard({ role }: CrmPageProps) {
 
   return (
     <>
-      <PageHead title="Дашборд механика" sub={`${shortName(me.name)} · ${me.position} · вторник, 13 октября 2026`}
+      <PageHead photo={equipmentPhoto('dumptruck', 'mech')} title="Дашборд механика" sub={`${shortName(me.name)} · ${me.position} · вторник, 13 октября 2026`}
         actions={<><button className="btn btn-secondary" onClick={() => go('briefings')}><ShieldCheck />Инструктажи</button><button className="btn btn-primary" onClick={() => go('repairs')}><Wrench />Доска ТО и ремонтов</button></>} />
 
       <div className="cx-stats" style={{ ['--n' as string]: 5 }}>

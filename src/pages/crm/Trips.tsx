@@ -2,8 +2,7 @@ import { useMemo, useState } from 'react'
 import { AlertTriangle, CalendarClock, FileText, MapPin, Plus, Repeat, ShieldAlert, Star, Truck, UserCheck, Wrench } from 'lucide-react'
 import {
   Badge, DataTable, Drawer, Field, KV, Modal, PageHead, SearchInput, Seg, Stat, StatusBadge, Tabs,
-  date, dateShort, money, num, uid, useList, useToast, type Col,
-} from '../../ui'
+  date, dateShort, money, num, uid, useList, useToast, type Col, EqThumb } from '../../ui'
 import { categoryOne, workMode } from '../../data/types'
 import { emp, eq, equipment, site, sites, TODAY } from '../../data/mock'
 import { activeDrivers, isWeekend, modeMeta, trips as seed, tripEnd, type Attendance, type Trip, type TripMode, type TripStatus } from '../../data/crm-b'
@@ -61,7 +60,7 @@ export default function Trips({ role }: CrmPageProps) {
       <div><div className="cb-cell-main tnum">{dateShort(t.date)}{t.weekend && <span style={{ marginLeft: 6 }}><Badge tone="warn" plain>вых.</Badge></span>}</div>
         <div className="cb-cell-sub tnum">{t.mode === 'вахта' ? `с ${t.start}, ${t.days} дн.` : `${t.start}–${t.end}`}</div></div>
     ) },
-    { key: 'e', title: 'Техника', render: (t) => { const e = eq(t.equipmentId)!; return <div><div className="cb-cell-main">{e.title}</div><div className="cb-cell-sub">{categoryOne[e.category]} · <span className="mono">{e.plate}</span>{e.own ? '' : ' · привлечённая'}</div></div> } },
+    { key: 'e', title: 'Техника', render: (t) => { const e = eq(t.equipmentId)!; return <EqThumb eq={e}><div className="cb-cell-main">{e.title}</div><div className="cb-cell-sub">{categoryOne[e.category]} · <span className="mono">{e.plate}</span>{e.own ? '' : ' · привлечённая'}</div></EqThumb> } },
     { key: 'dr', title: 'Водитель', render: (t) => <div><div style={{ whiteSpace: 'nowrap' }}>{shortName(emp(t.driverId)?.name ?? '—')}</div><Badge tone={attTone[t.attendance]}>{t.attendance}</Badge></div> },
     { key: 's', title: 'Объект', hideMobile: true, render: (t) => { const s = site(t.siteId); return <div><div className="cb-cell-main">{s?.name}</div><div className="cb-cell-sub">{s?.address}</div></div> } },
     { key: 'h', title: 'Длительность', nowrap: true, hideMobile: true, render: (t) => <span className="tnum">{duration(t)}</span> },

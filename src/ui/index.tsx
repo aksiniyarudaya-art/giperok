@@ -3,7 +3,7 @@ import { CheckCircle2, Inbox, Search, X } from 'lucide-react'
 import { initials } from './format'
 
 export * from './format'
-export { EquipmentArt } from './EquipmentArt'
+export { EquipmentArt, EqThumb, equipmentPhoto, brandPhoto } from './EquipmentArt'
 export { BarChart, Donut, LineChart, Sparkline } from './charts'
 
 /* ---------- Badge ---------- */
@@ -38,7 +38,16 @@ export function Avatar({ name, size }: { name: string; size?: 'sm' | 'lg' }) {
 }
 
 /* ---------- Page header ---------- */
-export function PageHead({ title, sub, actions }: { title: string; sub?: ReactNode; actions?: ReactNode }) {
+export function PageHead({ title, sub, actions, photo }: { title: string; sub?: ReactNode; actions?: ReactNode; photo?: string }) {
+  if (photo) return (
+    <div className="page-hero">
+      <div className="page-hero-body">
+        <h1>{title}</h1>{sub && <p>{sub}</p>}
+        {actions && <div className="row page-hero-actions">{actions}</div>}
+      </div>
+      <div className="page-hero-photo" aria-hidden><img src={photo} alt="" decoding="async" /></div>
+    </div>
+  )
   return (
     <div className="page-head">
       <div><h1>{title}</h1>{sub && <p>{sub}</p>}</div>

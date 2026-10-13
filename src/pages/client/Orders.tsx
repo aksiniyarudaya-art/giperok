@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Ban, CreditCard, Download, FileText, MessagesSquare, Plus, Repeat2, Star } from 'lucide-react'
-import { DataTable, Drawer, EquipmentArt, KV, PageHead, SearchInput, Stat, StatusBadge, Tabs, date, money, plural, useToast, type Col } from '../../ui'
+import { DataTable, Drawer, EquipmentArt, KV, PageHead, SearchInput, Stat, StatusBadge, Tabs, date, money, plural, useToast, type Col, EqThumb } from '../../ui'
 import { emp } from '../../data/mock'
 import type { Order } from '../../data/types'
 import { clientSite, partnerDriver } from '../../data/cabinet'
@@ -44,7 +44,7 @@ export default function Orders() {
   const cols: Col<Order>[] = [
     { key: 'n', title: '№', render: (o) => <b className="mono">{o.number}</b>, nowrap: true },
     { key: 'd', title: 'Дата', render: (o) => <span className="tnum">{date(o.date)}<span className="muted"> · {o.start}</span></span>, nowrap: true },
-    { key: 'e', title: 'Техника', render: (o) => <span style={{ fontWeight: 500 }}>{findEq(o.equipmentId)?.title}</span> },
+    { key: 'e', title: 'Техника', render: (o) => <EqThumb eq={findEq(o.equipmentId)}><span style={{ fontWeight: 500 }}>{findEq(o.equipmentId)?.title}</span></EqThumb> },
     { key: 's', title: 'Объект', render: (o) => clientSite(o.siteId)?.name, hideMobile: true },
     { key: 'h', title: 'Часы', render: (o) => <span className="tnum">{o.hours}</span>, align: 'r', hideMobile: true },
     { key: 'c', title: 'Сумма', render: (o) => <b className="tnum">{money(o.cost)}</b>, align: 'r', nowrap: true },
