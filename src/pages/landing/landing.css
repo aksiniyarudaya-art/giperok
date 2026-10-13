@@ -24,7 +24,7 @@
 .l-aud { display: inline-flex; align-self: flex-start; padding: 4px; background: var(--surface-3); border-radius: 999px; gap: 2px; }
 .l-aud button { border: 0; background: none; padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 14px; color: var(--fg-2); cursor: pointer; }
 .l-aud button.on { background: var(--ink); color: var(--ink-fg); }
-.l-h1 { font: 700 clamp(30px, 3.9vw, 50px)/1.06 var(--font-display); letter-spacing: -.02em; animation: rise .35s ease; }
+.l-h1 { font: 700 clamp(32px, 4.2vw, 56px)/1.04 var(--font-display); letter-spacing: -.04em; animation: rise .35s ease; }
 .l-sub { font-size: 17px; color: var(--fg-2); max-width: 560px; line-height: 1.6; }
 .l-search { display: grid; grid-template-columns: 1.2fr 1fr 1fr auto; gap: 0; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-lg); padding: 6px; box-shadow: var(--shadow); align-items: stretch; }
 .l-search-f { display: flex; flex-direction: column; gap: 2px; padding: 6px 14px; border-right: 1px solid var(--line); min-width: 0; }
@@ -35,7 +35,7 @@
 .l-trust span { display: inline-flex; gap: 6px; align-items: center; }
 .l-trust svg { color: var(--ok); }
 
-.l-board { background: var(--ink); color: var(--ink-fg); border-radius: 22px; padding: 18px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.l-board { background: var(--ink); color: var(--ink-fg); border-radius: 14px; padding: 18px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .l-board-head { display: flex; justify-content: space-between; align-items: center; padding: 2px 4px 6px; font-size: 13px; }
 .l-board-head .muted { color: var(--ink-fg-2); }
 .l-live { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
@@ -112,7 +112,7 @@
 .l-perks > div { display: flex; flex-direction: column; gap: 6px; }
 .l-perks span { color: var(--accent); }
 .l-perks p { color: var(--ink-fg-2); font-size: 14px; }
-.l-mini-dash { background: var(--ink-2); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 16px; font-size: 14px; }
+.l-mini-dash { background: var(--ink-2); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px; font-size: 14px; }
 .l-mini-dash .bar { background: color-mix(in srgb, var(--ink-fg) 12%, transparent); }
 .l-load { display: flex; flex-direction: column; gap: 6px; }
 .l-load span { color: var(--ink-fg-2); }
@@ -121,7 +121,7 @@
 
 /* leads */
 .l-leads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.l-lead { border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.l-lead { border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .l-lead-client { background: var(--surface); border: 1px solid var(--line); }
 .l-lead-owner { background: var(--accent-soft); }
 .l-lead h3 { font: 600 20px/1.25 var(--font-display); }
